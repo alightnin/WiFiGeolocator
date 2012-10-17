@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+		<link rel="stylesheet" href="css/geolocator.css">
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+		<script src="cordova-2.0.0.js"></script>
+		<script src="js/iscroll-lite.js"></script>
+		<script src="js/jquery-1.8.2.min.js"></script>
+		<script src="js/jquery.mobile.js"></script>
+		<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+		<script src="js/geolocator.js"></script>
+		<title>WiFi GeoLocator</title>
+	</head>
+	<body onload="init()">
+		<header>
+			<ul id="tab-bar">
+    			<li><a href="#capture">Capture</a></li>
+    			<li><a href="#search">Search</a></li>
+    			<li><a href="#map">Map</a></li>
+    			<li><a href="#analyze">Analyze</a></li>
+    			<li><a href="#settings">Settings</a></li>
+			</ul>
+		</header>
+		<div id="wrapper">
+			<div id="main-content">
+				<div id="pages">
+    				<div id="capture" class="current">
+    					<div data-role="fieldcontain">
+    							<label for="capture-method" class="select">Capture To:</label>
+    							<select name="capture-method" id="capture-method">
+    								<option value="sd">SD Card</option>
+    								<option value="cloud">Cloud</option>
+    							</select>
+    					</div>
+    				</div>
+    				<div id="search">
+    				</div>
+    				<div id="map">
+    					<div id="map_canvas"></div>
+    				</div>
+    				<div id="analyze">
+    				</div>
+    				<div id="settings">
+    				</div>
+				</div>
+			</div>
+		</div>
+	<script>
+		$('#tab-bar a').on('click', function(e){
+		    e.preventDefault();
+		    var nextPage = $(e.target.hash);
+		    $("#pages .current").removeClass("current");
+		    nextPage.addClass("current");
+		});
+	</script>
+	</body>
+</html>
