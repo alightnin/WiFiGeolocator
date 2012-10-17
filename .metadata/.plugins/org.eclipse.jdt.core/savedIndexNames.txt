@@ -1,0 +1,4 @@
+INDEX VERSION 1.126+/Users/craigweir/Dropbox/School/Fall 2012/CSCI 396(Mobile Apps)/WiFiGeolocator/.metadata/.plugins/org.eclipse.jdt.core
+1729852270.index
+2863823951.index
+1040439221.index

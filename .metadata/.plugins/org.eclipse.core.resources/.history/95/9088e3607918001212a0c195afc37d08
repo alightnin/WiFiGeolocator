@@ -36,8 +36,8 @@ function loaded() {
 function success(position) {
     var elementLat = document.getElementById('latitude');
     elementLat.innerHTML = position.coords.latitude;
-    var elementLong = document.getElementById('longitude');
-    elementLong.innerHTML = position.coords.longitude;
+    var elementLong = document.getElementByID('longitude');
+    elementLong.innerHTML = posiotion.coords.longitude;
 }
 function error(error) {
     alert(error.message);

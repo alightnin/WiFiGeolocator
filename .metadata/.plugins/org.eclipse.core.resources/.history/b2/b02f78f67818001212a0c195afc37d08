@@ -26,19 +26,3 @@ function init() {
 	};
 	var map= new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
 }
-
-//Getting Latitude and Longitude
-document.addEventListener("deviceready", loaded, false);
-var watchID = null;
-function loaded() {
-    watchID = navigator.geolocation.watchPosition(success, error, { frequency: 3000 });
-}
-function success(position) {
-    var elementLat = document.getElementById('latitude');
-    elementLat.innerHTML = position.coords.latitude;
-    var elementLong = document.getElementById('longitude');
-    elementLong.innerHTML = position.coords.longitude;
-}
-function error(error) {
-    alert(error.message);
-}

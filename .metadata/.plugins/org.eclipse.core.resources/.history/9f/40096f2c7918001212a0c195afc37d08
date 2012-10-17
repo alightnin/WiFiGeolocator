@@ -34,10 +34,8 @@ function loaded() {
     watchID = navigator.geolocation.watchPosition(success, error, { frequency: 3000 });
 }
 function success(position) {
-    var elementLat = document.getElementById('latitude');
-    elementLat.innerHTML = position.coords.latitude;
-    var elementLong = document.getElementById('longitude');
-    elementLong.innerHTML = position.coords.longitude;
+    var element = document.getElementById('latitude');
+    element.innerHTML = position.coords.latitude;
 }
 function error(error) {
     alert(error.message);

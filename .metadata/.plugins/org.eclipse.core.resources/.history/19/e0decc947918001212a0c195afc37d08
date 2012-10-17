@@ -36,10 +36,8 @@
     					<div data-role="fieldcontain">
     						<label for="latitude">Latitude:</label>
     						<label id="latitude"></label>
-    					</div>
-    					<div data-role="fieldcontain">
     						<label for="longitude">Longitude:</label>
-    						<label id="longitude"></label>    				
+    						<label id="longitude"></label>
     					</div>
     				</div>
     				<div id="search">
