@@ -3,7 +3,6 @@ body { height: 100%; margin: 0; padding: 0px}
 #map_canvas {width: 500px; height: 100%; margin-left: auto; margin-right: auto;}
 #home {
 	text-align: center;
-	background: url('../../images/background_viewsource.png');
 }
 
 
@@ -18,8 +17,12 @@ body { height: 100%; margin: 0; padding: 0px}
 	width: 50%;
 	max-width: 200px;
 }
-#tab-bar li {
-    display: inline;
-    float:left;
-    width:16.66%;
+#footer .ui-controlgroup {
+    width:100%;
+    text-align: center;
+    margin-left: 2.5%;
+    margin-right: auto;
+}
+#footer a {
+	width:19%;
 }
