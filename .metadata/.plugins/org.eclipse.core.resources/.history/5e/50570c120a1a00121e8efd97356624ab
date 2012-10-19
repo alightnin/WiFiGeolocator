@@ -1,7 +1,11 @@
 var theScroll;
 var markerData=[];
+<<<<<<< HEAD
+var latitude, longitude;
 
+=======
 var latitude=-999, longitude=-999;
+>>>>>>> origin/tomerge
 function scroll(){
     theScroll = new iScroll('wrapper');
 }
@@ -86,6 +90,11 @@ var WifiPlugin = {
 		res.innerHTML="Waiting for Results";
 	}
 	function startButtonPressed(){
+<<<<<<< HEAD
+		inter=setInterval(startScanning, 3000);
+		//startScanning();
+		stat.innerHTML="Scanning...";
+=======
 		if(latitude!=-999 && longitude!=-999){
 			inter=setInterval(startScanning, 3000);
 			//startScanning();
@@ -93,6 +102,8 @@ var WifiPlugin = {
 		}else{
 			alert("You need to turn on your GPS");
 		}
+	
+>>>>>>> origin/tomerge
 	}
 	function stopButtonPressed(){
 		clearInterval(inter);
