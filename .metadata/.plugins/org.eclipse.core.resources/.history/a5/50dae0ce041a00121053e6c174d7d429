@@ -1,6 +1,7 @@
 var theScroll;
 var markerData=[];
 var latitude, longitude;
+document.getElementById("stopButton").hide();
 
 function scroll(){
     theScroll = new iScroll('wrapper');
@@ -88,10 +89,15 @@ var WifiPlugin = {
 		inter=setInterval(startScanning, 3000);
 		//startScanning();
 		stat.innerHTML="Scanning...";
+		document.getElementById("startButton").hide();
+		document.getElementById("stopButton").show();
+	
 	}
 	function stopButtonPressed(){
 		clearInterval(inter);
 		stat.innerHTML="Idle";
+		document.getElementById("stopButton").hide();
+		document.getElementById("startButton").show();
 	}
 	function startScanning() {
 		res.innerHTML=" ";

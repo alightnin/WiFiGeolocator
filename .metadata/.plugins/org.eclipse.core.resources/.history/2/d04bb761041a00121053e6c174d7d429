@@ -1,7 +1,6 @@
 var theScroll;
 var markerData=[];
 var latitude, longitude;
-
 function scroll(){
     theScroll = new iScroll('wrapper');
 }
@@ -88,6 +87,7 @@ var WifiPlugin = {
 		inter=setInterval(startScanning, 3000);
 		//startScanning();
 		stat.innerHTML="Scanning...";
+	
 	}
 	function stopButtonPressed(){
 		clearInterval(inter);

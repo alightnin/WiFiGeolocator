@@ -88,10 +88,12 @@ var WifiPlugin = {
 		inter=setInterval(startScanning, 3000);
 		//startScanning();
 		stat.innerHTML="Scanning...";
+	
 	}
 	function stopButtonPressed(){
 		clearInterval(inter);
 		stat.innerHTML="Idle";
+
 	}
 	function startScanning() {
 		res.innerHTML=" ";
