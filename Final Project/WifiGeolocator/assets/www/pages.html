@@ -10,24 +10,10 @@
 	    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
 	    <script type="text/javascript" src="js/jquery.ui.map.js"></script>
 		<script src="js/geolocator.js"></script>
-		<script type="text/javascript">
-        	$(function() {
-            	    // Also works with: var yourStartLatLng = '59.3426606750, 18.0736160278';
-                	var yourStartLatLng = new google.maps.LatLng(59.3426606750, 18.0736160278);
-                	$('#map_canvas').gmap({'center': yourStartLatLng});
-        	});
-        	$('#map').live("pageshow", function() {
-	        	alert("fire1");
-    	        $('#map_canvas').gmap('refresh');
-    		});
-    		$('#map').live("pageinit", function() {
-    			alert("fire2");
-            	$('#map_canvas').gmap({'center': '59.3426606750, 18.0736160278'});
-    		});
-		</script>
+
 		<title>WiFi GeoLocator</title>
 	</head>
-	<body onload="init()">
+	<body onload="onBodyLoad()" >
 	<!-- Start of Menu Screen -->
 		<div id="home" data-role="page" data-theme="a" data-title="Home">
 			<div data-role="content">
@@ -60,6 +46,10 @@
     			<label for="longitude">Longitude:</label>
    				<label id="longitude"></label>    				
    			</div>
+   			<button onclick="startButtonPressed()">Capture</button>
+   			<button onclick="stopButtonPressed()">Stop Capture</button>
+   			<div id="status">Waiting</div>
+   			<div id="results">Waiting</div>
 		</div>
 		<div data-role="footer"  data-theme="a" data-position="fixed">
 			<div data-role="navigation" id="tab-bar">
@@ -78,7 +68,7 @@
 	<!-- Begin Map Page -->
 	<div id="map" data-role="page" data-theme="a" data-title="Map">
 		<div data-role="content">
-			<div id="map_canvas"></div>
+			<div id="map_canvas" style = "width:500px; height:600px;"></div>
 		</div>
 		<div data-role="footer"  data-theme="a" data-position="fixed">
 			<div data-role="navigation" id="tab-bar">
