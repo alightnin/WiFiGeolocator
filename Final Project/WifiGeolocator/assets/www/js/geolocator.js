@@ -1,11 +1,16 @@
 var theScroll;
 var markerData=[];
+<<<<<<< HEAD
 var latitude, longitude;
 
+=======
+var latitude=-999, longitude=-999;
+>>>>>>> origin/tomerge
 function scroll(){
     theScroll = new iScroll('wrapper');
 }
 document.addEventListener('DOMContentLoaded', scroll, false);
+
 
 function page(toPage) {
     var toPage = $(toPage),
@@ -22,17 +27,14 @@ function page(toPage) {
 
 //Map JS
 $(function() {
-    // Also works with: var yourStartLatLng = '59.3426606750, 18.0736160278';
-	var yourStartLatLng = new google.maps.LatLng(32, -180);
-	$('#map_canvas').gmap({'center': yourStartLatLng});
+	var yourStartLatLng = new google.maps.LatLng(39, -108);
+		$('#map_canvas').gmap({'center': yourStartLatLng});
 });
 $('#map').live("pageshow", function() {
-//alert("fire1");
-$('#map_canvas').gmap('refresh');
+	$('#map_canvas').gmap('refresh');
 });
 $('#map').live("pageinit", function() {
-//alert("fire2");
-$('#map_canvas').gmap({'center': '32, -180'});
+	$('#map_canvas').gmap({'center': '39, -108'});
 });
 //$.each(markerData, function(){
 //	$('#map_canvas').gmap('addMarker', {'position': lat,lon', 'bounds': true}).click(function() {
@@ -44,6 +46,7 @@ $('#map_canvas').gmap({'center': '32, -180'});
 //Getting Latitude and Longitude
 document.addEventListener("deviceready", loaded, false);
 var watchID = null;
+var network = null;
 function loaded() {
     watchID = navigator.geolocation.watchPosition(success, error, { frequency: 3000 });
 }
@@ -58,6 +61,8 @@ function success(position) {
 function error(error) {
     alert(error.message);
 }
+
+
 //Plugin JS
 var WifiPlugin = {
 		callNativeFunction: function (success, fail, resultType) {
@@ -85,9 +90,20 @@ var WifiPlugin = {
 		res.innerHTML="Waiting for Results";
 	}
 	function startButtonPressed(){
+<<<<<<< HEAD
 		inter=setInterval(startScanning, 3000);
 		//startScanning();
 		stat.innerHTML="Scanning...";
+=======
+		if(latitude!=-999 && longitude!=-999){
+			inter=setInterval(startScanning, 3000);
+			//startScanning();
+			stat.innerHTML="Scanning...";
+		}else{
+			alert("You need to turn on your GPS");
+		}
+	
+>>>>>>> origin/tomerge
 	}
 	function stopButtonPressed(){
 		clearInterval(inter);
@@ -120,10 +136,7 @@ var WifiPlugin = {
 			markerData[i]=arr[i];
 			str+=arr[i].ssid + " " + arr[i].mac+arr[i].security + " " +arr[i].frequency + " " +arr[i].signal + " " +arr[i].lat+" "+arr[i].lon+"</br>";
 		}
-		res.innerHTML=str;
-
-		
-		  
+		res.innerHTML=str;	  
 	}
 
 	function nativePluginErrorHandler(result) {
