@@ -46,7 +46,7 @@
    				<label id="longitude"></label>    				
    			</div>
    			<div><button onclick="startButtonPressed()">Capture</button></div>
-   			<div id="stopButton"><button onclick="stopButtonPressed()">Stop Capture</button></div>
+   			<div><button onclick="stopButtonPressed()">Stop Capture</button></div>
    			<div id="status">Waiting</div>
    			<div id="results">Waiting</div>
 		</div>
