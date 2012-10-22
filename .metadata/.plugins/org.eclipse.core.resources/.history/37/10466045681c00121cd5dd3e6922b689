@@ -13,8 +13,8 @@
 		<title>WiFi GeoLocator</title>
 	</head>
 	<body onload="onBodyLoad()" >
-	<!-- Start of Menu Screen
-	<div id="home" data-role="page" data-theme="a" data-title="Home">
+	<!-- Start of Menu Screen -->
+		<div id="home" data-role="page" data-theme="a" data-title="Home">
 			<div data-role="content">
 				<img src="images/wifiearth2.jpg" alt="Wifi GeoLocator Logo"/>
 			</div>
@@ -25,8 +25,8 @@
 				<a href="#search" data-role="button">Search</a>
 				<a href="#settings" data-role="button">Settings</a>
 			</div>
-	</div>
-	End of Menu Screen -->
+		</div>
+	<!-- End of Menu Screen -->
 	<!-- Start of Capture Page -->
 	<div id="capture" data-role="page" data-theme="a" data-title="Capture">
 		<div data-role="content">
@@ -65,7 +65,7 @@
 	<!-- Begin Map Page -->
 	<div id="map" data-role="page" data-theme="a" data-title="Map">
 		<div data-role="content">
-			<div id="map_canvas" style = "height:350px; position: relative; overflow: hidden; webkit-transfrom: translateZ(0);"></div>
+			<div id="map_canvas" style = "width:500px; height:600px;"></div>
 		</div>
 		<div id="footer" data-role="footer" data-theme="a" data-position="fixed">
 			<div data-role="controlgroup" data-type="horizontal">
@@ -78,6 +78,5 @@
     		</div>
 		</div>
 	</div>
-	<!-- End of Map Page -->
 	</body>
 </html>

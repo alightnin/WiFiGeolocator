@@ -65,7 +65,7 @@
 	<!-- Begin Map Page -->
 	<div id="map" data-role="page" data-theme="a" data-title="Map">
 		<div data-role="content">
-			<div id="map_canvas" style = "height:350px; position: relative; overflow: hidden; webkit-transfrom: translateZ(0);"></div>
+			<div id="map_canvas" style = "width:device-width; height:100%;"></div>
 		</div>
 		<div id="footer" data-role="footer" data-theme="a" data-position="fixed">
 			<div data-role="controlgroup" data-type="horizontal">
