@@ -1,6 +1,5 @@
 var theScroll;
 var markerData=[];
-
 var latitude=-999, longitude=-999;
 
 document.addEventListener('DOMContentLoaded', scroll, false);
@@ -26,6 +25,7 @@ $(function() {
 });
 $('#map').live("pageshow", function() {
 	$('#map_canvas').gmap('refresh');
+	
 });
 $('#map').live("pageinit", function() {
 	$('#map_canvas').gmap({'center': '39, -108'});
@@ -59,8 +59,8 @@ function error(error) {
 
 //Plugin JS
 var WifiPlugin = {
-		callNativeFunction: function (success, fail, resultType) {
-		return cordova.exec( success, fail, "com.example.wifigeolocator", "nativeAction", [resultType]);
+		callNativeFunction: function (success, fail, native_action, resultType) {
+		return cordova.exec( success, fail, "com.example.wifigeolocator", native_action, [resultType]);
 		}
 	}; 
 	APobj = new Object();
@@ -82,6 +82,13 @@ var WifiPlugin = {
 		res=document.getElementById('results');
 		stat.innerHTML="Idle";
 		res.innerHTML="Waiting for Results";
+		var mapcanvas=document.getElementById('map_canvas');
+		mapcanvas.style.width=window.innerWidth-30+'px';
+		mapcanvas.style.height=window.innerHeight-80+'px';
+		var str = "Weidth: "+window.innerWidth+ " Height: "+ window.innerHeight;
+		res.innerHTML=str;
+		WifiPlugin.callNativeFunction(wifiNativePluginSuccessHandler, nativePluginErrorHandler, "TurnOn", null);
+
 	}
 	function startButtonPressed(){
 		if(latitude!=-999 && longitude!=-999){
@@ -96,9 +103,13 @@ var WifiPlugin = {
 		clearInterval(inter);
 		stat.innerHTML="Idle";
 	}
+	function turnOnWifi(){
+
+		WifiPlugin.callNativeFunction(wifiNativePluginSuccessHandler, nativePluginErrorHandler, "TurnOn", null);
+	}
 	function startScanning() {
 		res.innerHTML=" ";
-		WifiPlugin.callNativeFunction(nativePluginSuccessHandler, nativePluginErrorHandler, null);
+		WifiPlugin.callNativeFunction(nativePluginSuccessHandler, nativePluginErrorHandler, "Scan", null);
 	}
 
 	function nativePluginSuccessHandler(result) {
@@ -129,3 +140,9 @@ var WifiPlugin = {
 	function nativePluginErrorHandler(result) {
 		alert("Error "+result);
 	}
+	function wifiNativePluginSuccessHandler(result){
+	alert(result);	
+	}
+	
+	
+	

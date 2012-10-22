@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 	<head>
 		<meta name="viewport" content="width=device-width, user-scalable=no">
@@ -47,6 +47,7 @@
    			</div>
    			<div><button onclick="startButtonPressed()">Capture</button></div>
    			<div id="stopButton"><button onclick="stopButtonPressed()">Stop Capture</button></div>
+   			<div><button onclick="turnOnWifi()">Turn On Wifi</button></div>
    			<div id="status">Waiting</div>
    			<div id="results">Waiting</div>
 		</div>
@@ -65,7 +66,8 @@
 	<!-- Begin Map Page -->
 	<div id="map" data-role="page" data-theme="a" data-title="Map">
 		<div data-role="content">
-			<div id="map_canvas" style = "height:350px; position: relative; overflow: hidden; webkit-transfrom: translateZ(0);"></div>
+			<div id="map_canvas" style="width:<script>window.innerWidth</script>; height:<script>window.innerHeight</script>"> </div>
+
 		</div>
 		<div id="footer" data-role="footer" data-theme="a" data-position="fixed">
 			<div data-role="controlgroup" data-type="horizontal">

@@ -14,7 +14,8 @@ import android.net.wifi.ScanResult;
 import android.net.wifi.WifiManager;
 
 public class ScannerPlugin extends Plugin {
-public static final String NATIVE_ACTION_STRING="nativeAction"; 
+public static final String SCAN_STRING="Scan"; 
+public static final String TURN_ON_STRING="TurnOn"; 
 private WifiManager wifiManager;
       public static final String SUCCESS_PARAMETER="success"; 
       private static final String TAG = "WIFI SCANNER";
@@ -22,18 +23,9 @@ private WifiManager wifiManager;
       @Override 
       public PluginResult execute(String action, JSONArray data, String callbackId) { 
              //only perform the action if it is the one that should be invoked 
-             if (NATIVE_ACTION_STRING.equals(action)) { 
-       
-            	 // Turn Wifi On
-            	 wifiManager=(WifiManager) this.cordova.getActivity().getSystemService(Context.WIFI_SERVICE);
-
-             	 if(!wifiManager.isWifiEnabled())
-             	 {
-             		 wifiManager.setWifiEnabled(true);
-             	 }
-             	 //End Turn Wifi on
+    	  Log.v(TAG,action);
+    	  if (SCAN_STRING.equals(action)) { 
              	 // Get Scan
-
              	 ap[] set1 = new ap[100];
              	 numap=0;
              	 for(int i=0; i< 100; i++)
@@ -43,18 +35,10 @@ private WifiManager wifiManager;
              			e.printStackTrace();
                 	}
              	 set1=getwifi(set1);
-
              	 //end Get Scan
              	 // Convert to Json  
-
-
-  
-   
               	JSONObject jAPType = new JSONObject();
-
-
               	for(int i=1; i<numap; i++){
-
               		JSONObject jObject = new JSONObject();
               		try {
               			jObject.put("SSID", set1[i].ssid);	
@@ -68,12 +52,26 @@ private WifiManager wifiManager;
 						e.printStackTrace();
 					}
               	}
-
              	//Log.v(TAG,jAPType.toString());
              	return new PluginResult(PluginResult.Status.OK, jAPType); 
-
              } 
-             return null; 
+    	  else if(TURN_ON_STRING.equals(action)	)
+    	  {
+    		  // Turn Wifi On
+         	 wifiManager=(WifiManager) this.cordova.getActivity().getSystemService(Context.WIFI_SERVICE);
+
+          	 if(!wifiManager.isWifiEnabled())
+          	 {
+          		 wifiManager.setWifiEnabled(true);
+          		 return new PluginResult(PluginResult.Status.OK);
+          	 }
+          	 else
+          		 return new PluginResult(PluginResult.Status.OK, "WIFI IS ON");
+          	 //End Turn Wifi on
+    	  }
+    	  else {
+            	 return new PluginResult(PluginResult.Status.INVALID_ACTION);
+    	  }
       }
       public ap[] getwifi(ap[] set)
       {
@@ -92,5 +90,4 @@ private WifiManager wifiManager;
       	return set;
       }
 } 
-
 
