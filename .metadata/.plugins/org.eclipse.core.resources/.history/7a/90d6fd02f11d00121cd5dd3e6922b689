@@ -28,23 +28,23 @@
 	</div>
 	End of Menu Screen -->
 	<!-- Start of Analyze Page -->
-	<div id="analyze" data-role="page" data-theme="a" data-title="Analyze">
+	<div id="analyze" data-role="page" data-theme="b" data-title="Analyze">
 		<div data-role="content">
 		</div>
-		<div id="footer" data-role="footer" data-theme="a" data-position="fixed">
+		<div id="footer" data-role="footer" data-theme="b" data-position="fixed">
 			<div data-role="controlgroup" data-type="horizontal">
 				<!--<a href="#home" data-role="button" data-icon="home" data-iconpos="top">Home</a>-->
-  				<a href="#capture" data-role="button" data-icon="my-camera" data-iconpos="top">Capture</a>
-   				<a href="#map" data-role="button" data-icon="my-grid" data-iconpos="top">Map</a>
-   				<a href="#analyze" data-role="button" data-icon="my-info" data-iconpos="top">Analyze</a>
-   				<a href="#search" data-role="button" data-icon="my-search" data-iconpos="top">Search</a>
-    			<a href="#settings" data-role="button" data-icon="my-gear" data-iconpos="top">Settings</a>
+  				<a href="#capture" data-role="button" data-icon="camera" data-iconpos="top">Capture</a>
+   				<a href="#map" data-role="button" data-icon="grid" data-iconpos="top">Map</a>
+   				<a href="#analyze" data-role="button" data-icon="info" data-iconpos="top">Analyze</a>
+   				<a href="#search" data-role="button" data-icon="search" data-iconpos="top">Search</a>
+    			<a href="#settings" data-role="button" data-icon="gear" data-iconpos="top">Settings</a>
 			</div>
 		</div>
 	</div>
 	<!-- End of Analyze Page -->
 	<!-- Start of Capture Page -->
-	<div id="capture" data-role="page" data-theme="a" data-title="Capture">
+	<div id="capture" data-role="page" data-theme="b" data-title="Capture">
 		<div data-role="content">
 			<div data-role="fieldcontain">
     			<label for="capture-method" class="select">Capture To:</label>
@@ -67,32 +67,32 @@
    			<div id="status">Waiting</div>
    			<div id="results">Waiting</div>
 		</div>
-		<div id="footer" data-role="footer" data-theme="a" data-position="fixed">
+		<div id="footer" data-role="footer" data-theme="b" data-position="fixed">
 			<div data-role="controlgroup" data-type="horizontal">
 				<!--<a href="#home" data-role="button" data-icon="home" data-iconpos="top">Home</a> -->
-  				<a href="#capture" data-role="button" data-icon="my-camera" data-iconpos="top">Capture</a>
-   				<a href="#map" data-role="button" data-icon="my-grid" data-iconpos="top">Map</a>
-   				<a href="#analyze" data-role="button" data-icon="my-info" data-iconpos="top">Analyze</a>
-   				<a href="#search" data-role="button" data-icon="my-search" data-iconpos="top">Search</a>
-    			<a href="#settings" data-role="button" data-icon="my-gear" data-iconpos="top">Settings</a>
+  				<a href="#capture" data-role="button" data-icon="camera" data-iconpos="top">Capture</a>
+   				<a href="#map" data-role="button" data-icon="grid" data-iconpos="top">Map</a>
+   				<a href="#analyze" data-role="button" data-icon="info" data-iconpos="top">Analyze</a>
+   				<a href="#search" data-role="button" data-icon="search" data-iconpos="top">Search</a>
+    			<a href="#settings" data-role="button" data-icon="gear" data-iconpos="top">Settings</a>
     		</div>
 		</div>
 	</div>
 	<!-- End of Capture Page -->
 	<!-- Begin Map Page -->
-	<div id="map" data-role="page" data-theme="a" data-title="Map">
+	<div id="map" data-role="page" data-theme="b" data-title="Map">
 		<div data-role="content">
 			<div id="map_canvas" style="width:<script>window.innerWidth</script>; height:<script>window.innerHeight</script>"> </div>
 
 		</div>
-		<div id="footer" data-role="footer" data-theme="a" data-position="fixed">
+		<div id="footer" data-role="footer" data-theme="b" data-position="fixed">
 			<div data-role="controlgroup" data-type="horizontal">
 				<!--<a href="#home" data-role="button" data-icon="home" data-iconpos="top">Home</a> -->
-  				<a href="#capture" data-role="button" data-icon="my-camera" data-iconpos="top">Capture</a>
-   				<a href="#map" data-role="button" data-icon="my-grid" data-iconpos="top">Map</a>
-   				<a href="#analyze" data-role="button" data-icon="my-info" data-iconpos="top">Analyze</a>
-   				<a href="#search" data-role="button" data-icon="my-search" data-iconpos="top">Search</a>
-    			<a href="#settings" data-role="button" data-icon="my-gear" data-iconpos="top">Settings</a>
+  				<a href="#capture" data-role="button" data-icon="camera" data-iconpos="top">Capture</a>
+   				<a href="#map" data-role="button" data-icon="grid" data-iconpos="top">Map</a>
+   				<a href="#analyze" data-role="button" data-icon="info" data-iconpos="top">Analyze</a>
+   				<a href="#search" data-role="button" data-icon="search" data-iconpos="top">Search</a>
+    			<a href="#settings" data-role="button" data-icon="gear" data-iconpos="top">Settings</a>
     		</div>
 		</div>
 	</div>
