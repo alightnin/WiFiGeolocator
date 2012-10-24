@@ -85,7 +85,7 @@ var WifiPlugin = {
 		var mapcanvas=document.getElementById('map_canvas');
 		mapcanvas.style.width=window.innerWidth-30+'px';
 		mapcanvas.style.height=window.innerHeight-80+'px';
-		var str = "Weidth: "+window.innerWidth+ " Height: "+ window.innerHeight;
+		var str = "Width: "+window.innerWidth+ " Height: "+ window.innerHeight;
 		res.innerHTML=str;
 		WifiPlugin.callNativeFunction(wifiNativePluginSuccessHandler, nativePluginErrorHandler, "TurnOn", null);
 

@@ -27,3 +27,7 @@ body { height: 100%; margin: 0; padding: 0px}
 	width:19%;
 }
 
+.ui-icon-camera {
+	background-image: url("images/icons/camera.jpg");
+}
+
