@@ -27,3 +27,26 @@ body { height: 100%; margin: 0; padding: 0px}
 	width:19%;
 }
 
+.ui-icon-my-camera {
+	background-image: url("../images/icons/86-camera.png");
+	background-size: 18px, 18px;
+}
+.ui-icon-my-search {
+	background-image: url("../images/icons/06-magnify.png");
+	background-size: 18px, 18px;
+}
+.ui-icon-my-grid {
+	background-image: url("../images/icons/07-map-marker.png");
+	background-size: 18px, 18px;
+}
+.ui-icon-my-info{
+	background-image: url("../images/icons/12-eye.png");
+	background-size: 18px, 18px;
+}
+.ui-icon-my-gear{
+	background-image: url("../images/icons/19-gear.png");
+	background-size: 18px, 18px;
+}
+
+
+
