@@ -24,8 +24,11 @@ private WifiManager wifiManager;
       public PluginResult execute(String action, JSONArray data, String callbackId) { 
              //only perform the action if it is the one that should be invoked 
     	  Log.v(TAG,action);
+      	 wifiManager=(WifiManager) this.cordova.getActivity().getSystemService(Context.WIFI_SERVICE);
+
     	  if (SCAN_STRING.equals(action)) { 
              	 // Get Scan
+
              	 ap[] set1 = new ap[100];
              	 numap=0;
              	 for(int i=0; i< 100; i++)
@@ -53,16 +56,17 @@ private WifiManager wifiManager;
 					}
               	}
              	//Log.v(TAG,jAPType.toString());
+              	
              	return new PluginResult(PluginResult.Status.OK, jAPType); 
              } 
     	  else if(TURN_ON_STRING.equals(action)	)
     	  {
     		  // Turn Wifi On
-         	 wifiManager=(WifiManager) this.cordova.getActivity().getSystemService(Context.WIFI_SERVICE);
-
+    		  Log.v(TAG, "TURN ON IF");
           	 if(!wifiManager.isWifiEnabled())
           	 {
           		 wifiManager.setWifiEnabled(true);
+          		 Log.v(TAG,"!!!!!!!!!!!!!!!! WIFI ON NOW");
           		 return new PluginResult(PluginResult.Status.OK);
           	 }
           	 else

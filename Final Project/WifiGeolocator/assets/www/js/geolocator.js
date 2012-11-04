@@ -38,11 +38,13 @@ $('#map').live("pageinit", function() {
 //})
 
 //Getting Latitude and Longitude
-document.addEventListener("deviceready", loaded, false);
+document.addEventListener("deviceready", deviceReady, false);
 var watchID = null;
 var network = null;
-function loaded() {
+function deviceReady() {
     watchID = navigator.geolocation.watchPosition(success, error, { frequency: 3000 });
+    //if(setting to turn on wifi on startup)
+    turnOnWifi();
 }
 function success(position) {
     var elementLat = document.getElementById('latitude');
@@ -76,7 +78,7 @@ var WifiPlugin = {
 	var inter;
 	var stat;
 	var res;
-	function onBodyLoad() 
+function onBodyLoad() 
 	{   
 		stat=document.getElementById('status');
 		res=document.getElementById('results');
@@ -87,24 +89,23 @@ var WifiPlugin = {
 		mapcanvas.style.height=window.innerHeight-80+'px';
 		var str = "Width: "+window.innerWidth+ " Height: "+ window.innerHeight;
 		res.innerHTML=str;
-		WifiPlugin.callNativeFunction(wifiNativePluginSuccessHandler, nativePluginErrorHandler, "TurnOn", null);
+//		turnOnWifi();
 
 	}
 	function startButtonPressed(){
-		if(latitude!=-999 && longitude!=-999){
+		//if(latitude!=-999 && longitude!=-999){
 			inter=setInterval(startScanning, 3000);
 			//startScanning();
 			stat.innerHTML="Scanning...";
-		}else{
-			alert("You need to turn on your GPS");
-		}
+		//}else{
+		//	alert("You need to turn on your GPS");
+		//}
 	}
 	function stopButtonPressed(){
 		clearInterval(inter);
 		stat.innerHTML="Idle";
 	}
 	function turnOnWifi(){
-
 		WifiPlugin.callNativeFunction(wifiNativePluginSuccessHandler, nativePluginErrorHandler, "TurnOn", null);
 	}
 	function startScanning() {
@@ -141,7 +142,7 @@ var WifiPlugin = {
 		alert("Error "+result);
 	}
 	function wifiNativePluginSuccessHandler(result){
-	alert(result);	
+		//alert("Wifi On: "+result);	
 	}
 	
 	
