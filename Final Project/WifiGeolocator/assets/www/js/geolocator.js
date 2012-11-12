@@ -25,7 +25,7 @@ $(function() {
 });
 $('#map').live("pageshow", function() {
 	$('#map_canvas').gmap('refresh');
-	
+
 });
 $('#map').live("pageinit", function() {
 	$('#map_canvas').gmap({'center': '39, -108'});
@@ -82,8 +82,10 @@ function onBodyLoad()
 	{   
 		stat=document.getElementById('status');
 		res=document.getElementById('results');
+		analyzeResults=document.getElementById('analyzeResults');
 		stat.innerHTML="Idle";
 		res.innerHTML="Waiting for Results";
+		analyzeResults.innerHTML="Nothing to report";
 		var mapcanvas=document.getElementById('map_canvas');
 		mapcanvas.style.width=window.innerWidth-30+'px';
 		mapcanvas.style.height=window.innerHeight-80+'px';
@@ -92,9 +94,9 @@ function onBodyLoad()
 //		turnOnWifi();
 
 	}
-	function startButtonPressed(){
+	function startButtonPressed(scanType){
 		//if(latitude!=-999 && longitude!=-999){
-			inter=setInterval(startScanning, 3000);
+			inter=setInterval(function(){startScanning(scanType)}, 3000);
 			//startScanning();
 			stat.innerHTML="Scanning...";
 		//}else{
@@ -103,17 +105,18 @@ function onBodyLoad()
 	}
 	function stopButtonPressed(){
 		clearInterval(inter);
-		stat.innerHTML="Idle";
+		stat.innerHTML="Idle"; 
 	}
 	function turnOnWifi(){
 		WifiPlugin.callNativeFunction(wifiNativePluginSuccessHandler, nativePluginErrorHandler, "TurnOn", null);
 	}
-	function startScanning() {
+	function startScanning(scanType) {
 		res.innerHTML=" ";
-		WifiPlugin.callNativeFunction(nativePluginSuccessHandler, nativePluginErrorHandler, "Scan", null);
+		WifiPlugin.callNativeFunction(scanType, nativePluginErrorHandler, "Scan", null);
 	}
 
-	function nativePluginSuccessHandler(result) {
+	function captureNativePluginSuccessHandler(result) {
+		// This is for debugging only. This code will change to upload or save instead of display
 		var key, i=0, str;
 		var arr = [];
 		for(key in result.AP){
@@ -126,10 +129,10 @@ function onBodyLoad()
 			lat: latitude,
 			lon: longitude,
 			};
-		
+
 			arr.push(obj);
 		}
-		
+
 		str="";
 		for(i=0; i<arr.length; i++) {
 			markerData[i]=arr[i];
@@ -137,13 +140,32 @@ function onBodyLoad()
 		}
 		res.innerHTML=str;	  
 	}
+	function analyzeNativePluginSuccessHandler(result){
+		var key, i=0, str="<table>";
+		var arr = [];
+		for(key in result.AP){
+			var obj = {
+			ssid: result.AP[key].SSID,
+			mac: result.AP[key].MAC,
+			security: result.AP[key].SECURITY,
+			frequency: result.AP[key].FREQUENCY,
+			signal: result.AP[key].SIGNAL,
+			lat: latitude,
+			lon: longitude,
+			};
 
+			arr.push(obj);
+		}
+
+		for(i=0; i<arr.length; i++) {
+			str+="<tr><td>"+ arr[i].ssid + "</td><td>"+ arr[i].mac+"</td><td>"+arr[i].signal+"</td></tr>";
+		}
+		str+="</table>";
+		analyzeResults.innerHTML=str;	
+	}
 	function nativePluginErrorHandler(result) {
 		alert("Error "+result);
 	}
 	function wifiNativePluginSuccessHandler(result){
 		//alert("Wifi On: "+result);	
 	}
-	
-	
-	
