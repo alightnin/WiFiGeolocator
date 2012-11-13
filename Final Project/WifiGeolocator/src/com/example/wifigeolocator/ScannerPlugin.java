@@ -1,5 +1,7 @@
 package com.example.wifigeolocator;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import org.apache.cordova.api.Plugin;
@@ -20,6 +22,7 @@ private WifiManager wifiManager;
       public static final String SUCCESS_PARAMETER="success"; 
       private static final String TAG = "WIFI SCANNER";
   	  private int numap=0;
+
       @Override 
       public PluginResult execute(String action, JSONArray data, String callbackId) { 
              //only perform the action if it is the one that should be invoked 
@@ -39,6 +42,7 @@ private WifiManager wifiManager;
                 	}
              	 set1=getwifi(set1);
              	 //end Get Scan
+             	 // sort
              	 // Convert to Json  
               	JSONObject jAPType = new JSONObject();
               	for(int i=1; i<numap; i++){
@@ -55,7 +59,7 @@ private WifiManager wifiManager;
 						e.printStackTrace();
 					}
               	}
-             	//Log.v(TAG,jAPType.toString());
+             	Log.v(TAG,jAPType.toString());
               	
              	return new PluginResult(PluginResult.Status.OK, jAPType); 
              } 
@@ -82,6 +86,22 @@ private WifiManager wifiManager;
 
       	wifiManager.startScan();
       	List<ScanResult> apq = wifiManager.getScanResults();
+      	Collections.sort(apq, new Comparator<ScanResult>() {
+
+			public int compare(ScanResult accessPoint1, ScanResult accessPoint2) {
+				int sComp = accessPoint1.SSID.compareTo(accessPoint2.SSID);
+					if(sComp !=0 ){
+						return sComp;
+					} else {
+						if (accessPoint1.level>=accessPoint2.level)
+							return 1;
+						else if (accessPoint1.level<=accessPoint2.level)
+							return -1;
+						else 
+							return 0;
+			}
+			}
+		}); 
       	numap=apq.size();
         for(int i=1; i<numap; i++){
         	try {
@@ -91,7 +111,9 @@ private WifiManager wifiManager;
         		e.printStackTrace();
         	}
       	}
+        
       	return set;
       }
+
 } 
 

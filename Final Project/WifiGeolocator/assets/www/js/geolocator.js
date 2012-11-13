@@ -141,8 +141,9 @@ function onBodyLoad()
 		res.innerHTML=str;	  
 	}
 	function analyzeNativePluginSuccessHandler(result){
-		var key, i=0, str="<table>";
+		var key, i=0, str="<div data-role=\"collapsible-set\" data-inset=\"false\" data-theme=\"b\" data-content-theme=\"d\">";
 		var arr = [];
+		var previous="";
 		for(key in result.AP){
 			var obj = {
 			ssid: result.AP[key].SSID,
@@ -158,9 +159,21 @@ function onBodyLoad()
 		}
 
 		for(i=0; i<arr.length; i++) {
-			str+="<tr><td>"+ arr[i].ssid + "</td><td>"+ arr[i].mac+"</td><td>"+arr[i].signal+"</td></tr>";
+			if(previous!=arr[i].ssid) {
+				if(i!=0)
+					str+="</div>";
+				str+="<div data-role=\"collapsible\" data-inset=\"false\"><h3>"+arr[i].ssid+"</h3>";
+					previous=arr[i].ssid;
+					
+			}else{
+				str+="<table><tr><td>"+arr[i].ssid+"</td><td>"+ arr[i].mac+"</td><td>"+arr[i].signal+"</td></tr></table>";
+				//str+="<p>"+arr[i].signal+"</p>";
+				previous=arr[i].ssid;
+			
+			}
+//			str+="<tr><td>"+ arr[i].ssid + "</td><td>"+ arr[i].mac+"</td><td>"+arr[i].signal+"</td></tr>";
 		}
-		str+="</table>";
+		str+="</div>";
 		analyzeResults.innerHTML=str;	
 	}
 	function nativePluginErrorHandler(result) {
