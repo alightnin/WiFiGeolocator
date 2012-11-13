@@ -93,9 +93,9 @@ private WifiManager wifiManager;
 					if(sComp !=0 ){
 						return sComp;
 					} else {
-						if (accessPoint1.level>=accessPoint2.level)
+						if (accessPoint1.level<=accessPoint2.level)
 							return 1;
-						else if (accessPoint1.level<=accessPoint2.level)
+						else if (accessPoint1.level>=accessPoint2.level)
 							return -1;
 						else 
 							return 0;
