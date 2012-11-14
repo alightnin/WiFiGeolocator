@@ -127,13 +127,11 @@
 			<div data-role="fieldcontain">
 				<label for="scan-slider">Scan Interval</label>
 				<input type="range" name="scan-slider" id="scan-slider" value="10" min=".5" max="10" step=".5" data-mini="true" data-highlight="true" data-theme="a" data-track="b"/>
-			</div>
-			<div data-role="fieldcontain">
 				<label for="wifi-toggle">Turn WiFi On/Off</label>
 				<select name="wifi-toggle" id="wifi-toggle" data-role="slider">
 					<option value="Off">Off</option>
 					<option value="On">On</option>
-				</select>			
+				</select>
 			</div>
 		</div>
 		<div id="footer" data-role="footer" data-theme="a" data-position="fixed">

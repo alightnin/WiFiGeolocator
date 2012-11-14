@@ -104,48 +104,5 @@
 		</div>
 	</div>
 	<!-- End of Map Page -->
-	<div id="search" data-role="page" data-theme="a" data-title="Search">
-		<div data-role="content">
-			<button>Find AP's Near Me</button>
-			<form>
-				<input type="text" placeholder="Enter City" name="city"/>		
-			</form>
-		</div>
-		<div id="footer" data-role="footer" data-theme="a" data-position="fixed">
-			<div data-role="controlgroup" data-type="horizontal">
-				<!--<a href="#home" data-role="button" data-icon="home" data-iconpos="top">Home</a> -->
-  				<a href="#capture" data-role="button" data-icon="my-camera" data-iconpos="top">Capture</a>
-   				<a href="#map" data-role="button" data-icon="my-grid" data-iconpos="top">Map</a>
-   				<a href="#analyze" data-role="button" data-icon="my-info" data-iconpos="top">Analyze</a>
-   				<a href="#search" data-role="button" data-icon="my-search" data-iconpos="top">Search</a>
-    			<a href="#settings" data-role="button" data-icon="my-gear" data-iconpos="top">Settings</a>
-    		</div>
-		</div>
-	</div>
-	<div id="settings" data-role="page" data-theme="a" data-title="Settings">
-		<div data-role="content">
-			<div data-role="fieldcontain">
-				<label for="scan-slider">Scan Interval</label>
-				<input type="range" name="scan-slider" id="scan-slider" value="10" min=".5" max="10" step=".5" data-mini="true" data-highlight="true" data-theme="a" data-track="b"/>
-			</div>
-			<div data-role="fieldcontain">
-				<label for="wifi-toggle">Turn WiFi On/Off</label>
-				<select name="wifi-toggle" id="wifi-toggle" data-role="slider">
-					<option value="Off">Off</option>
-					<option value="On">On</option>
-				</select>			
-			</div>
-		</div>
-		<div id="footer" data-role="footer" data-theme="a" data-position="fixed">
-			<div data-role="controlgroup" data-type="horizontal">
-				<!--<a href="#home" data-role="button" data-icon="home" data-iconpos="top">Home</a> -->
-  				<a href="#capture" data-role="button" data-icon="my-camera" data-iconpos="top">Capture</a>
-   				<a href="#map" data-role="button" data-icon="my-grid" data-iconpos="top">Map</a>
-   				<a href="#analyze" data-role="button" data-icon="my-info" data-iconpos="top">Analyze</a>
-   				<a href="#search" data-role="button" data-icon="my-search" data-iconpos="top">Search</a>
-    			<a href="#settings" data-role="button" data-icon="my-gear" data-iconpos="top">Settings</a>
-    		</div>
-		</div>
-	</div>
 	</body>
 </html>
