@@ -84,11 +84,14 @@ var WifiPlugin = {
 			if(previous!=arr[i].ssid) {
 				if(i!=0)
 					str+="</div>";
-				str+="<div data-role=\"collapsible\" data-inset=\"false\"><h3>"+arr[i].ssid+"</h3>";
+				str+="<div class =\"aps\" data-role=\"collapsible\" data-inset=\"true\"><h3>"+arr[i].ssid+"</h3>";
+				if(arr[i].ssid!=arr[i+1].ssid)
+					str+="SSID: "+arr[i].ssid+" MAC: "+ arr[i].mac+" SIGNAL: "+arr[i].signal;
 					previous=arr[i].ssid;
+				
 					
 			}else{
-				str+="<table><tr><td>"+arr[i].ssid+"</td><td>"+ arr[i].mac+"</td><td>"+arr[i].signal+"</td></tr></table>";
+				str+="<ul class =\"aps\" data-role=\"collapsible\" data-inset=\"true\"><h3>"+arr[i].ssid+" "+ arr[i].mac+" "+arr[i].signal+"</h3>This area displays more info</ul>";
 				//str+="<p>"+arr[i].signal+"</p>";
 				previous=arr[i].ssid;
 			
@@ -98,8 +101,11 @@ var WifiPlugin = {
 		//str+="</div>";
 //		str='{"AP":[{"FREQUENCY":9,"SECURITY":"[WPA2-PSK-CCMP]","MAC":"00:26:f2:99:ea:e0","SSID":"ACM","SIGNAL":-45},{"FREQUENCY":11,"SECURITY":"[OPEN]","MAC":"00:25:84:93:a9:a3","SSID":"CMU Visitor","SIGNAL":-90},{"FREQUENCY":1,"SECURITY":"[OPEN]","MAC":"00:25:84:90:99:03","SSID":"CMU Visitor","SIGNAL":-89},{"FREQUENCY":1,"SECURITY":"[OPEN]","MAC":"00:25:84:90:23:73","SSID":"CMU Visitor","SIGNAL":-89},{"FREQUENCY":1,"SECURITY":"[OPEN]","MAC":"00:25:84:90:19:13","SSID":"CMU Visitor","SIGNAL":-89},{"FREQUENCY":6,"SECURITY":"[OPEN]","MAC":"00:25:84:90:22:23","SSID":"CMU Visitor","SIGNAL":-88},{"FREQUENCY":6,"SECURITY":"[OPEN]","MAC":"00:25:84:90:86:03","SSID":"CMU Visitor","SIGNAL":-86},{"FREQUENCY":6,"SECURITY":"[OPEN]","MAC":"00:25:84:93:a6:a3","SSID":"CMU Visitor","SIGNAL":-84},{"FREQUENCY":1,"SECURITY":"[OPEN]","MAC":"00:25:84:37:56:43","SSID":"CMU Visitor","SIGNAL":-83},{"FREQUENCY":11,"SECURITY":"[OPEN]","MAC":"00:25:84:94:67:53","SSID":"CMU Visitor","SIGNAL":-81},{"FREQUENCY":6,"SECURITY":"[OPEN]","MAC":"00:25:84:91:9e:13","SSID":"CMU Visitor","SIGNAL":-81},{"FREQUENCY":1,"SECURITY":"[OPEN]","MAC":"00:25:84:91:96:33","SSID":"CMU Visitor","SIGNAL":-71},{"FREQUENCY":6,"SECURITY":"[OPEN]","MAC":"00:25:84:93:a7:83","SSID":"CMU Visitor","SIGNAL":-60},{"FREQUENCY":1,"SECURITY":"[OPEN]","MAC":"00:25:84:90:a8:b3","SSID":"CMU Visitor","SIGNAL":-56},{"FREQUENCY":11,"SECURITY":"[OPEN]","MAC":"00:25:84:90:a4:b3","SSID":"CMU Visitor","SIGNAL":-56},{"FREQUENCY":1,"SECURITY":"[WPA-EAP-CCMP][WPA2-EAP-CCMP]","MAC":"00:25:84:90:23:71","SSID":"CMU WLAN","SIGNAL":-89},{"FREQUENCY":1,"SECURITY":"[WPA-EAP-CCMP][WPA2-EAP-CCMP]","MAC":"00:25:84:90:19:11","SSID":"CMU WLAN","SIGNAL":-89},{"FREQUENCY":1,"SECURITY":"[WPA-EAP-CCMP][WPA2-EAP-CCMP]","MAC":"00:25:84:90:99:01","SSID":"CMU WLAN","SIGNAL":-88},{"FREQUENCY":6,"SECURITY":"[WPA-EAP-CCMP][WPA2-EAP-CCMP]","MAC":"00:25:84:90:22:21","SSID":"CMU WLAN","SIGNAL":-88},{"FREQUENCY":6,"SECURITY":"[WPA-EAP-CCMP][WPA2-EAP-CCMP]","MAC":"00:25:84:90:86:01","SSID":"CMU WLAN","SIGNAL":-86},{"FREQUENCY":1,"SECURITY":"[WPA-EAP-CCMP][WPA2-EAP-CCMP]","MAC":"00:25:84:37:56:41","SSID":"CMU WLAN","SIGNAL":-84},{"FREQUENCY":6,"SECURITY":"[WPA-EAP-CCMP][WPA2-EAP-CCMP]","MAC":"00:25:84:93:a6:a1","SSID":"CMU WLAN","SIGNAL":-84},{"FREQUENCY":11,"SECURITY":"[WPA-EAP-CCMP][WPA2-EAP-CCMP]","MAC":"00:25:84:94:67:51","SSID":"CMU WLAN","SIGNAL":-81},{"FREQUENCY":6,"SECURITY":"[WPA-EAP-CCMP][WPA2-EAP-CCMP]","MAC":"00:25:84:91:9e:11","SSID":"CMU WLAN","SIGNAL":-81},{"FREQUENCY":1,"SECURITY":"[WPA-EAP-CCMP][WPA2-EAP-CCMP]","MAC":"00:25:84:91:96:31","SSID":"CMU WLAN","SIGNAL":-71},{"FREQUENCY":6,"SECURITY":"[WPA-EAP-CCMP][WPA2-EAP-CCMP]","MAC":"00:25:84:93:a7:81","SSID":"CMU WLAN","SIGNAL":-60},{"FREQUENCY":1,"SECURITY":"[WPA-EAP-CCMP][WPA2-EAP-CCMP]","MAC":"00:25:84:90:a8:b1","SSID":"CMU WLAN","SIGNAL":-56},{"FREQUENCY":11,"SECURITY":"[WPA-EAP-CCMP][WPA2-EAP-CCMP]","MAC":"00:25:84:90:a4:b1","SSID":"CMU WLAN","SIGNAL":-45}]})';
 	//	analyzeResults.innerHTML=str;
+		$(".aps").trigger("create");
 		$('#analyzeResults').append(str);
 		$("#analyzeResults").trigger("create");
+
+		//$(".aps").listview("refresh");
 
 		//$('#analyzeResults').trigger( 'updatelayout' );
 	}
