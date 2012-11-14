@@ -84,15 +84,15 @@ var WifiPlugin = {
 			if(previous!=arr[i].ssid) {
 				if(i!=0)
 					str+="</div>";
-				str+="<div class =\"aps\" data-role=\"collapsible\" data-inset=\"true\"><h3>"+arr[i].ssid+"</h3>";
+				str+="<div  data-role=\"collapsible\" data-inset=\"true\"><h3>"+arr[i].ssid+"</h3>";
 				if(arr[i].ssid!=arr[i+1].ssid)
 					str+="SSID: "+arr[i].ssid+" MAC: "+ arr[i].mac+" SIGNAL: "+arr[i].signal;
 					previous=arr[i].ssid;
 				
 					
 			}else{
-				str+="<ul class =\"aps\" data-role=\"collapsible\" data-inset=\"true\"><h3>"+arr[i].ssid+" "+ arr[i].mac+" "+arr[i].signal+"</h3>This area displays more info</ul>";
-				//str+="<p>"+arr[i].signal+"</p>";
+				//"<button> SSID: "+arr[i].ssid+" MAC: "+ arr[i].mac+" SIGNAL: "+arr[i].signal;
+				str+="<ul class =\"aps\" data-role=\"listview\" data-inset=\"true\"><h3>"+arr[i].ssid+" "+ arr[i].mac+" "+arr[i].signal+"</h3>This area displays more info</ul>";
 				previous=arr[i].ssid;
 			
 			}

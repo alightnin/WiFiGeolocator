@@ -47,6 +47,16 @@ body { height: 100%; margin: 0; padding: 0px}
 	background-image: url("../images/icons/19-gear.png");
 	background-size: 18px, 18px;
 }
-
-
-
+.ui-ul-has-thumb .ui-btn-inner {
+    min-height: 60px;
+    padding-left: 60px;
+    width: 50px;
+    height: 50px;
+    margin: 8px;
+    border-color:#FF3300; 
+    border: 15px solid; 
+}
+.aps {
+    border-color:#FF3300; 
+    border: 1px solid; 
+}
