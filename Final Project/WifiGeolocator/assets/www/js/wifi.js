@@ -63,8 +63,8 @@ var WifiPlugin = {
 	}
 	function analyzeNativePluginSuccessHandler(result){
 		var key, i=0, str=" ";//"<div id=\"analyzeResultsDiv\" data-role=\"collapsible-set\" data-inset=\"false\" data-theme=\"b\" data-content-theme=\"d\">";
-		var arr = [];
-		var previous="", next="";
+		var arr = [], ids=[];
+		var previous="", next="", identity="";
 		
 		//$('#analyzeResults').listview();
 		for(key in result.AP){
@@ -82,21 +82,27 @@ var WifiPlugin = {
 		}
 
 		for(i=0; i<arr.length; i++) {
+			identity=arr[i].ssid;
+		//	console.log($("input[name="+arr[i].ssid+"]").serialize());
+//			$("#stringify").text(arr[i].ssid);
+//			$("#stringify").serialize());
+			identity = identity.replace(/\s+/g, '');
 			if(i!=arr.length-1) next=arr[i+1].ssid;
 //			else
 //				next="";
-			if(previous!=next) {
-				if(arr[i].ssid!=next){
-					alert("here");
+			if(arr[i].ssid!=previous) {
+				//if(arr[i].ssid!=next){
+//					alert("here");
 //					if(i!=0)
 //						str+="</div>";
-					str+="<div data-role=\"listview\" data-inset=\"true\"><h3>SSID: "+arr[i].ssid+" MAC: "+ arr[i].mac+" SIGNAL: "+arr[i].signal+"</div>";
-				}
+					ids.push(identity);
+					str+="<div onclick=\"showDiv(\'listdiv"+identity+"\')\" id=\"maindiv"+arr[i].ssid+"\" data-role=\"listview\" data-inset=\"true\"><h3>SSID: "+arr[i].ssid+" MAC: "+ arr[i].mac+" SIGNAL: "+arr[i].signal+"</div>";
+				//}
 				//alert("next: "+next+" current= "+arr[i].ssid);
 				if(arr[i].ssid==next)
 				{ //alert("here");
-					//style=\"display: none\"
-				str+="<div class=\"listdiv\" data-role=\"listview\" data-inset=\"true\" >";
+					//style=\"display: none\"   id=\"listdiv"+identity+"\"
+				str+="<div id=\"listdiv"+identity+"\" class=\"sublists\" data-role=\"listview\" data-inset=\"true\">";
 				}
 				previous=arr[i].ssid;
 				
@@ -130,6 +136,7 @@ var WifiPlugin = {
 		$(".aps").trigger("create");
 		$('#analyzeResults').html(str);
 		$("#analyzeResults").trigger("create");
+		$(".sublists").hide();
 
 		//$(".aps").listview("refresh");
 
@@ -141,3 +148,12 @@ var WifiPlugin = {
 	function wifiNativePluginSuccessHandler(result){
 		//alert("Wifi On: "+result);	
 	}
+	
+	function showDiv(divToShow) {
+		var str="#"+divToShow;
+		console.log(divToShow);
+		$("#"+divToShow).toggle();
+		//console.log("here");
+	}
+	
+	

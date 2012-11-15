@@ -2,7 +2,7 @@ var theScroll;
 var markerData=[];
 var latitude=-999, longitude=-999;
 
-document.addEventListener('DOMContentLoaded', scroll, false);
+//document.addEventListener('DOMContentLoaded', scroll, false);
 
 
 function page(toPage) {
