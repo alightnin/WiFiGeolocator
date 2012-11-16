@@ -11,7 +11,15 @@
 	    <script  src="js/jquery.ui.map.js"></script>
 		<script src="js/geolocator.js"></script>
 		<script src="js/wifi.js"></script>
-		<script src="js/map.js"></script>		
+		<script src="js/map.js"></script>
+		<script>
+		function saveSettings(){
+			var state = $('wifi-toggle').val();
+			 x = state.toString();
+			alert("Your State is" + x);
+		};
+		</script>
+		
 		<title>WiFi GeoLocator</title>
 	</head>
 	<body onload="onBodyLoad()" >

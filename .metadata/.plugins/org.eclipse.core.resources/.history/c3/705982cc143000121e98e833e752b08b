@@ -11,7 +11,8 @@
 	    <script  src="js/jquery.ui.map.js"></script>
 		<script src="js/geolocator.js"></script>
 		<script src="js/wifi.js"></script>
-		<script src="js/map.js"></script>		
+		<script src="js/map.js"></script>
+		
 		<title>WiFi GeoLocator</title>
 	</head>
 	<body onload="onBodyLoad()" >
@@ -136,7 +137,7 @@
 				</select>			
 			</div>
 			<div data-role="fieldcontain">
-				<input type="button" name="save" value="Save Settings" id="saveset" onclick="saveSettings()"/>
+				<input type="button" name="save" value="Save Settings" id="saveset"/>
 			</div>
 		</div>
 		<div id="footer" data-role="footer" data-theme="a" data-position="fixed">

@@ -59,7 +59,11 @@ function onBodyLoad()
 	res.innerHTML=str;
 //	turnOnWifi();
 	
-	
+	$('#saveset').on('submit', function(){
+		var state = $('#wifi-toggle').val();
+			 
+		alert(state);
+	});
 
 }
 
