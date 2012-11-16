@@ -1,6 +1,7 @@
 var theScroll;
 var markerData=[];
 var latitude=-999, longitude=-999;
+var wifitoggle;
 
 //document.addEventListener('DOMContentLoaded', scroll, false);
 
@@ -59,7 +60,13 @@ function onBodyLoad()
 	res.innerHTML=str;
 //	turnOnWifi();
 	
-	
+	$('#saveset').on('submit', function(){
+		 $('#wifi-toggle').change(function(){
+			 state = $('#wifi-toggle').val();
+			 
+		 });
+		 alert(state);
+	});
 
 }
 

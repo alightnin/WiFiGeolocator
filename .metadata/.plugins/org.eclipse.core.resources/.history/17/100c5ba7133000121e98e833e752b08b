@@ -58,12 +58,8 @@ function onBodyLoad()
 	var str = "Width: "+window.innerWidth+ " Height: "+ window.innerHeight;
 	res.innerHTML=str;
 //	turnOnWifi();
-	
-	
 
 }
-
-
 
 
 
