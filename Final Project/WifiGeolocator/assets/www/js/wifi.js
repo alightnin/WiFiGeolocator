@@ -106,7 +106,23 @@ var WifiPlugin = {
 			
 			}
 		}
-s
+//		for(i=0; i<arr.length; i++) {
+//			if(previous!=arr[i].ssid) {
+//				if(i!=0)
+//					str+="</div>";
+//				//data-role="collapsible-set"
+//				str+="<div  data-role=\"collapsible\" data-inset=\"true\"><h3>"+arr[i].ssid+"</h3>";
+//				if(arr[i].ssid!=arr[i+1].ssid)
+//					str+="SSID: "+arr[i].ssid+" MAC: "+ arr[i].mac+" SIGNAL: "+arr[i].signal;
+//					previous=arr[i].ssid;
+//				
+//					
+//			}else{
+//				str+="<button class =\"aps\" data-role=\"listview\" data-inset=\"true\"><h3>"+arr[i].ssid+" "+ arr[i].mac+" "+arr[i].signal+"</h3>This area displays more info</button>";
+//				previous=arr[i].ssid;
+//			
+//			}
+//		}
 		$(".aps").trigger("create");
 		$('#analyzeResults').html(str);
 		$("#analyzeResults").trigger("create");
