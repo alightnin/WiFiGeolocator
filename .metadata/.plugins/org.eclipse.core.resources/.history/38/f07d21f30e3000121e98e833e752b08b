@@ -28,7 +28,11 @@ function deviceReady() {
     watchID = navigator.geolocation.watchPosition(success, error, { frequency: 3000 });
     
     //if(setting to turn on wifi on startup)
-    $('wifi-toggle')
+    wifislide = $('#wifi-toggle').slider();
+    wifislide.on('slidestart', function(){
+    	turnOnWiFi();
+    });
+    
 }
 function success(position) {
     var elementLat = document.getElementById('latitude');

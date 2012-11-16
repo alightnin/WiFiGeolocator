@@ -28,7 +28,13 @@ function deviceReady() {
     watchID = navigator.geolocation.watchPosition(success, error, { frequency: 3000 });
     
     //if(setting to turn on wifi on startup)
-    $('wifi-toggle')
+    $('#wifi-toggle').change(function(){
+    	wifiswitch = $(this);
+    	if(wifiswitch.selectedIndex == 1)
+    	{
+    		turnOnWiFi();
+    	};
+    });
 }
 function success(position) {
     var elementLat = document.getElementById('latitude');
