@@ -69,14 +69,15 @@ var WifiPlugin = {
 		res.innerHTML=str;	
 		// THIS IS FOR LOCAL SQL STORAGE
 		for(i=0; i<arr.length; i++){
-			db.transaction(storeToDB(arr[i]), errorCB, successCB);
+			db.transaction(storeToDB, error, success);
 		}
 		// THIS IS FOR SERVER SIDE STORAGE
 	}
-    function storeToDB(tx, ap) {
+    function storeToDB(tx) {
+        console.log("inserted "+tx.ssid);
+        tx.executeSql('INSERT INTO wifi (mac, ssid, security, signal, channel, latitude, longitude) VALUES (tx.mac, tx.ssid, tx.security, tx.signal, tx.frequency, tx.latitude, tx.longitude)');
 
-        tx.executeSql('INSERT INTO wifi (mac, ssid, security, signal, channel, latitude, longitude) VALUES (ap.mac, ap.ssid, ap.security, ap.signal, ap.frequency, ap.latitude, ap.longitude)');
-   }
+    }
 	function analyzeNativePluginSuccessHandler(result){
 		var key, i=0, str=" ";//"<div id=\"analyzeResultsDiv\" data-role=\"collapsible-set\" data-inset=\"false\" data-theme=\"b\" data-content-theme=\"d\">";
 		var arr = [], ids=[];
