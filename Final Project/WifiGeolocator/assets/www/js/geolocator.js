@@ -28,9 +28,12 @@ var network = null;
 function deviceReady() {
     watchID = navigator.geolocation.watchPosition(success, error, { frequency: 3000 });
     db = window.openDatabase("wifi", "1.0", "wifiStorage", 200000);
-    db.transaction(populateDB, errorCB, successCB);
+    db.transaction(startDB, errorCB, successCB);
     //if(setting to turn on wifi on startup)
  
+}
+function startDB(tx) {
+    tx.executeSql('CREATE TABLE IF NOT EXISTS wifi (id unique, data)');
 }
 function success(position) {
     var elementLat = document.getElementById('latitude');
