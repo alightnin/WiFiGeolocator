@@ -12,7 +12,7 @@
 		<script src="js/geolocator.js"></script>
 		<script src="js/wifi.js"></script>
 		<script src="js/map.js"></script>		
-		<title>WiFi GeoLocator</title> 
+		<title>WiFi GeoLocator</title>
 	</head>
 	<body onload="onBodyLoad()" >
 	<!-- Start of Menu Screen
