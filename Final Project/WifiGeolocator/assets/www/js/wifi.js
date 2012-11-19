@@ -62,11 +62,14 @@ var WifiPlugin = {
 		}
 
 		str="";
-		for(i=0; i<arr.length; i++) {
-			markerData[i]=arr[i];
-			str+=arr[i].ssid + " " + arr[i].mac+arr[i].security + " " +arr[i].frequency + " " +arr[i].signal + " " +arr[i].lat+" "+arr[i].lon+"</br>";
-		}
-		res.innerHTML=str;	  
+//		for(i=0; i<arr.length; i++) {
+//			markerData[i]=arr[i];
+//			str+=arr[i].ssid + " " + arr[i].mac+arr[i].security + " " +arr[i].frequency + " " +arr[i].signal + " " +arr[i].lat+" "+arr[i].lon+"</br>";
+//		}
+		res.innerHTML=str;	
+		// THIS IS FOR LOCAL SQL STORAGE
+		
+		// THIS IS FOR SERVER SIDE STORAGE
 	}
 	function analyzeNativePluginSuccessHandler(result){
 		var key, i=0, str=" ";//"<div id=\"analyzeResultsDiv\" data-role=\"collapsible-set\" data-inset=\"false\" data-theme=\"b\" data-content-theme=\"d\">";

@@ -1,6 +1,7 @@
 var theScroll;
 var markerData=[];
 var latitude=-999, longitude=-999;
+var db;
 
 //document.addEventListener('DOMContentLoaded', scroll, false);
 
@@ -26,7 +27,8 @@ var watchID = null;
 var network = null;
 function deviceReady() {
     watchID = navigator.geolocation.watchPosition(success, error, { frequency: 3000 });
-    
+    db = window.openDatabase("wifi", "1.0", "wifiStorage", 200000);
+    db.transaction(populateDB, errorCB, successCB);
     //if(setting to turn on wifi on startup)
  
 }
