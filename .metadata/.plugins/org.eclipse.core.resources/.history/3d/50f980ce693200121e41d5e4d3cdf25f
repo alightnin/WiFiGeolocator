@@ -41,11 +41,11 @@
 		<div id="footer" data-role="footer" data-theme="a" data-position="fixed">
 			<div data-role="controlgroup" data-type="horizontal">
 				<!--<a href="#home" data-role="button" data-icon="home" data-iconpos="top">Home</a>-->
-  				<a href="#capture" data-role="button" data-icon="star" data-iconpos="top">Capture</a>
-   				<a href="#map" data-role="button" data-icon="grid" data-iconpos="top">Map</a>
-   				<a href="#analyze" data-role="button" data-icon="info" data-iconpos="top">Analyze</a>
-   				<a href="#search" data-role="button" data-icon="search" data-iconpos="top">Search</a>
-    			<a href="#settings" data-role="button" data-icon="gear" data-iconpos="top">Settings</a>
+  				<a href="#capture" data-role="button" data-icon="my-camera" data-iconpos="top">Capture</a>
+   				<a href="#map" data-role="button" data-icon="my-grid" data-iconpos="top">Map</a>
+   				<a href="#analyze" data-role="button" data-icon="my-info" data-iconpos="top">Analyze</a>
+   				<a href="#search" data-role="button" data-icon="my-search" data-iconpos="top">Search</a>
+    			<a href="#settings" data-role="button" data-icon="my-gear" data-iconpos="top">Settings</a>
 			</div>
 		</div>
 	</div>
@@ -76,13 +76,13 @@
 		</div>
 		<div id="footer" data-role="footer" data-theme="a" data-position="fixed">
 			<div data-role="controlgroup" data-type="horizontal">
-				<!--<a href="#home" data-role="button" data-icon="home" data-iconpos="top">Home</a>-->
-  				<a href="#capture" data-role="button" data-icon="star" data-iconpos="top">Capture</a>
-   				<a href="#map" data-role="button" data-icon="grid" data-iconpos="top">Map</a>
-   				<a href="#analyze" data-role="button" data-icon="info" data-iconpos="top">Analyze</a>
-   				<a href="#search" data-role="button" data-icon="search" data-iconpos="top">Search</a>
-    			<a href="#settings" data-role="button" data-icon="gear" data-iconpos="top">Settings</a>
-			</div>
+				<!--<a href="#home" data-role="button" data-icon="home" data-iconpos="top">Home</a> -->
+  				<a href="#capture" data-role="button" data-icon="my-camera" data-iconpos="top">Capture</a>
+   				<a href="#map" data-role="button" data-icon="my-grid" data-iconpos="top">Map</a>
+   				<a href="#analyze" data-role="button" data-icon="my-info" data-iconpos="top">Analyze</a>
+   				<a href="#search" data-role="button" data-icon="my-search" data-iconpos="top">Search</a>
+    			<a href="#settings" data-role="button" data-icon="my-gear" data-iconpos="top">Settings</a>
+    		</div>
 		</div>
 	</div>
 	<!-- End of Capture Page -->
@@ -94,13 +94,13 @@
 		</div>
 		<div id="footer" data-role="footer" data-theme="a" data-position="fixed">
 			<div data-role="controlgroup" data-type="horizontal">
-				<!--<a href="#home" data-role="button" data-icon="home" data-iconpos="top">Home</a>-->
-  				<a href="#capture" data-role="button" data-icon="star" data-iconpos="top">Capture</a>
-   				<a href="#map" data-role="button" data-icon="grid" data-iconpos="top">Map</a>
-   				<a href="#analyze" data-role="button" data-icon="info" data-iconpos="top">Analyze</a>
-   				<a href="#search" data-role="button" data-icon="search" data-iconpos="top">Search</a>
-    			<a href="#settings" data-role="button" data-icon="gear" data-iconpos="top">Settings</a>
-			</div>
+				<!--<a href="#home" data-role="button" data-icon="home" data-iconpos="top">Home</a> -->
+  				<a href="#capture" data-role="button" data-icon="my-camera" data-iconpos="top">Capture</a>
+   				<a href="#map" data-role="button" data-icon="my-grid" data-iconpos="top">Map</a>
+   				<a href="#analyze" data-role="button" data-icon="my-info" data-iconpos="top">Analyze</a>
+   				<a href="#search" data-role="button" data-icon="my-search" data-iconpos="top">Search</a>
+    			<a href="#settings" data-role="button" data-icon="my-gear" data-iconpos="top">Settings</a>
+    		</div>
 		</div>
 	</div>
 	<!-- End of Map Page -->
@@ -113,13 +113,13 @@
 		</div>
 		<div id="footer" data-role="footer" data-theme="a" data-position="fixed">
 			<div data-role="controlgroup" data-type="horizontal">
-				<!--<a href="#home" data-role="button" data-icon="home" data-iconpos="top">Home</a>-->
-  				<a href="#capture" data-role="button" data-icon="star" data-iconpos="top">Capture</a>
-   				<a href="#map" data-role="button" data-icon="grid" data-iconpos="top">Map</a>
-   				<a href="#analyze" data-role="button" data-icon="info" data-iconpos="top">Analyze</a>
-   				<a href="#search" data-role="button" data-icon="search" data-iconpos="top">Search</a>
-    			<a href="#settings" data-role="button" data-icon="gear" data-iconpos="top">Settings</a>
-			</div>
+				<!--<a href="#home" data-role="button" data-icon="home" data-iconpos="top">Home</a> -->
+  				<a href="#capture" data-role="button" data-icon="my-camera" data-iconpos="top">Capture</a>
+   				<a href="#map" data-role="button" data-icon="my-grid" data-iconpos="top">Map</a>
+   				<a href="#analyze" data-role="button" data-icon="my-info" data-iconpos="top">Analyze</a>
+   				<a href="#search" data-role="button" data-icon="my-search" data-iconpos="top">Search</a>
+    			<a href="#settings" data-role="button" data-icon="my-gear" data-iconpos="top">Settings</a>
+    		</div>
 		</div>
 	</div>
 	<div id="settings" data-role="page" data-theme="a" data-title="Settings">
@@ -141,13 +141,13 @@
 		</div>
 		<div id="footer" data-role="footer" data-theme="a" data-position="fixed">
 			<div data-role="controlgroup" data-type="horizontal">
-				<!--<a href="#home" data-role="button" data-icon="home" data-iconpos="top">Home</a>-->
-  				<a href="#capture" data-role="button" data-icon="star" data-iconpos="top">Capture</a>
-   				<a href="#map" data-role="button" data-icon="grid" data-iconpos="top">Map</a>
-   				<a href="#analyze" data-role="button" data-icon="info" data-iconpos="top">Analyze</a>
-   				<a href="#search" data-role="button" data-icon="search" data-iconpos="top">Search</a>
-    			<a href="#settings" data-role="button" data-icon="gear" data-iconpos="top">Settings</a>
-			</div>
+				<!--<a href="#home" data-role="button" data-icon="home" data-iconpos="top">Home</a> -->
+  				<a href="#capture" data-role="button" data-icon="my-camera" data-iconpos="top">Capture</a>
+   				<a href="#map" data-role="button" data-icon="my-grid" data-iconpos="top">Map</a>
+   				<a href="#analyze" data-role="button" data-icon="my-info" data-iconpos="top">Analyze</a>
+   				<a href="#search" data-role="button" data-icon="my-search" data-iconpos="top">Search</a>
+    			<a href="#settings" data-role="button" data-icon="my-gear" data-iconpos="top">Settings</a>
+    		</div>
 		</div>
 	</div>
 	</body>
