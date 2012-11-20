@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>yay</title>
+
+<script>
+function go() { 
+url="http://jmellor.net/wardriveapp/post.php?";
+url+="lat=99&long=99&ssid=NULLSSID2&mac=NULLMAC2&freq=12&sec=some&signal=11";
+var xmlhttp=new XMLHttpRequest();
+xmlhttp.open("GET",url,true);
+xmlhttp.send(null);
+console.log(xmlhttp.responseText);
+}
+</script>
+</head>
+<body onload="go()">
+yay
+</body>
+</html>

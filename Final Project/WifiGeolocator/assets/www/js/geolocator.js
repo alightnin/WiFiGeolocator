@@ -27,8 +27,8 @@ var watchID = null;
 var network = null;
 function deviceReady() {
     watchID = navigator.geolocation.watchPosition(success, error, { frequency: 3000 });
-    db = window.openDatabase("wifi", "1.0", "wifiStorage", 200000);
-    db.transaction(startDB, error, success);
+//    db = window.openDatabase("wifi", "1.0", "wifiStorage", 200000);
+//    db.transaction(startDB, error, success);
     //if(setting to turn on wifi on startup)
  
 }

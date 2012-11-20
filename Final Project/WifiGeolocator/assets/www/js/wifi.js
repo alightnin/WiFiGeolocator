@@ -1,4 +1,5 @@
 //Plugin JS
+var workingSet=[];
 var WifiPlugin = {
 		callNativeFunction: function (success, fail, native_action, resultType) {
 		return cordova.exec( success, fail, "com.example.wifigeolocator", native_action, [resultType]);
@@ -26,6 +27,7 @@ var WifiPlugin = {
 	}
 	function stopButtonPressed(){
 		clearInterval(inter);
+		//WE NEED TO UPLOAD/SAVE EVERYTHING IN workingSet now
 		stat.innerHTML="Idle"; 
 	}
 	function turnOnWifi(){
@@ -38,15 +40,18 @@ var WifiPlugin = {
 
 	function captureNativePluginSuccessHandler(result) {
 //		var temp= 'ap={"AP":[{"FREQUENCY":9,"SECURITY":"[WPA2-PSK-CCMP]","MAC":"00:26:f2:99:ea:e0","SSID":"ACM","SIGNAL":-45},{"FREQUENCY":11,"SECURITY":"[OPEN]","MAC":"00:25:84:93:a9:a3","SSID":"CMU Visitor","SIGNAL":-90},{"FREQUENCY":1,"SECURITY":"[OPEN]","MAC":"00:25:84:90:99:03","SSID":"CMU Visitor","SIGNAL":-89},{"FREQUENCY":1,"SECURITY":"[OPEN]","MAC":"00:25:84:90:23:73","SSID":"CMU Visitor","SIGNAL":-89},{"FREQUENCY":1,"SECURITY":"[OPEN]","MAC":"00:25:84:90:19:13","SSID":"CMU Visitor","SIGNAL":-89},{"FREQUENCY":6,"SECURITY":"[OPEN]","MAC":"00:25:84:90:22:23","SSID":"CMU Visitor","SIGNAL":-88},{"FREQUENCY":6,"SECURITY":"[OPEN]","MAC":"00:25:84:90:86:03","SSID":"CMU Visitor","SIGNAL":-86},{"FREQUENCY":6,"SECURITY":"[OPEN]","MAC":"00:25:84:93:a6:a3","SSID":"CMU Visitor","SIGNAL":-84},{"FREQUENCY":1,"SECURITY":"[OPEN]","MAC":"00:25:84:37:56:43","SSID":"CMU Visitor","SIGNAL":-83},{"FREQUENCY":11,"SECURITY":"[OPEN]","MAC":"00:25:84:94:67:53","SSID":"CMU Visitor","SIGNAL":-81},{"FREQUENCY":6,"SECURITY":"[OPEN]","MAC":"00:25:84:91:9e:13","SSID":"CMU Visitor","SIGNAL":-81},{"FREQUENCY":1,"SECURITY":"[OPEN]","MAC":"00:25:84:91:96:33","SSID":"CMU Visitor","SIGNAL":-71},{"FREQUENCY":6,"SECURITY":"[OPEN]","MAC":"00:25:84:93:a7:83","SSID":"CMU Visitor","SIGNAL":-60},{"FREQUENCY":1,"SECURITY":"[OPEN]","MAC":"00:25:84:90:a8:b3","SSID":"CMU Visitor","SIGNAL":-56},{"FREQUENCY":11,"SECURITY":"[OPEN]","MAC":"00:25:84:90:a4:b3","SSID":"CMU Visitor","SIGNAL":-56},{"FREQUENCY":1,"SECURITY":"[WPA-EAP-CCMP][WPA2-EAP-CCMP]","MAC":"00:25:84:90:23:71","SSID":"CMU WLAN","SIGNAL":-89},{"FREQUENCY":1,"SECURITY":"[WPA-EAP-CCMP][WPA2-EAP-CCMP]","MAC":"00:25:84:90:19:11","SSID":"CMU WLAN","SIGNAL":-89},{"FREQUENCY":1,"SECURITY":"[WPA-EAP-CCMP][WPA2-EAP-CCMP]","MAC":"00:25:84:90:99:01","SSID":"CMU WLAN","SIGNAL":-88},{"FREQUENCY":6,"SECURITY":"[WPA-EAP-CCMP][WPA2-EAP-CCMP]","MAC":"00:25:84:90:22:21","SSID":"CMU WLAN","SIGNAL":-88},{"FREQUENCY":6,"SECURITY":"[WPA-EAP-CCMP][WPA2-EAP-CCMP]","MAC":"00:25:84:90:86:01","SSID":"CMU WLAN","SIGNAL":-86},{"FREQUENCY":1,"SECURITY":"[WPA-EAP-CCMP][WPA2-EAP-CCMP]","MAC":"00:25:84:37:56:41","SSID":"CMU WLAN","SIGNAL":-84},{"FREQUENCY":6,"SECURITY":"[WPA-EAP-CCMP][WPA2-EAP-CCMP]","MAC":"00:25:84:93:a6:a1","SSID":"CMU WLAN","SIGNAL":-84},{"FREQUENCY":11,"SECURITY":"[WPA-EAP-CCMP][WPA2-EAP-CCMP]","MAC":"00:25:84:94:67:51","SSID":"CMU WLAN","SIGNAL":-81},{"FREQUENCY":6,"SECURITY":"[WPA-EAP-CCMP][WPA2-EAP-CCMP]","MAC":"00:25:84:91:9e:11","SSID":"CMU WLAN","SIGNAL":-81},{"FREQUENCY":1,"SECURITY":"[WPA-EAP-CCMP][WPA2-EAP-CCMP]","MAC":"00:25:84:91:96:31","SSID":"CMU WLAN","SIGNAL":-71},{"FREQUENCY":6,"SECURITY":"[WPA-EAP-CCMP][WPA2-EAP-CCMP]","MAC":"00:25:84:93:a7:81","SSID":"CMU WLAN","SIGNAL":-60},{"FREQUENCY":1,"SECURITY":"[WPA-EAP-CCMP][WPA2-EAP-CCMP]","MAC":"00:25:84:90:a8:b1","SSID":"CMU WLAN","SIGNAL":-56},{"FREQUENCY":11,"SECURITY":"[WPA-EAP-CCMP][WPA2-EAP-CCMP]","MAC":"00:25:84:90:a4:b1","SSID":"CMU WLAN","SIGNAL":-45}]})';
-//		var xmlhttp=new XMLHttpRequest();
+		var xmlhttp=new XMLHttpRequest();
 //		xmlhttp.open("POST","http://jmellor.net/wardrivingapp/post.php",true);
 //		xmlhttp.send(temp);
+//		xmlHttp = new XMLHttpRequest();
+//	    xmlHttp.open( "GET", theUrl, false );
+//	    xmlHttp.send( null );
 
 		
 		
 		// This is for debugging only. This code will change to upload or save instead of display
 		var key, i=0, str;
-		var arr = [];
+		var newRes = [];
 		for(key in result.AP){
 			var obj = {
 			ssid: result.AP[key].SSID,
@@ -58,20 +63,56 @@ var WifiPlugin = {
 			lon: longitude,
 			};
 
-			arr.push(obj);
+			newRes.push(obj);
 		}
 
-		str="";
+		url="jmellor.net/wardriveapp/post.php?";
+		var matches = false;
+		if(workingSet.length==0)
+			for(var q=0; q<newRes.length; q++)
+				workingSet.push(newRes[q]);
+		for(var i=0; i< workingSet.length; i++){
+			matches=false;
+			for(var j=0; j<newRes.length; j++){
+				if(workingSet.mac==newRes.mac && workingSet.ssid==newRes.ssid){
+					// the ap exists in workingSet and newRes
+					if(newRes.signal>workingSet.signal){
+						//The Signal went up
+						workingSet[i]=newRes[j];
+						matches=true;
+					} else if (newRes.signal<workingSet.signal){
+						//We are getting further away so we should upload what we have
+						//upload workingSet[i]
+						url+="lat="+workingSet[i].latitude+"&long="+workingSet[i].longitude+"&ssid="+workingSet[i].ssid+"&mac="+workingSet[i].mac+"&freq="+workingSet[i].frequency+"&sec="+workingSet[i].security+"&signal="+workingSet[i].signal;
+						xmlhttp.open("GET",url,true);
+						xmlhttp.send(null);
+						console.log(xmlhttp.responseText);
+						url="";
+						matches=true;
+					}
+				}else{
+					//the new ap is in newRes but not in working set
+					workingSet.push(newRes[i]);
+					matches=true;
+				}
+			}
+			//If matches==false, We lost the ap.
+			if(matches==false){
+				url+="lat="+workingSet[i].latitude+"&long="+workingSet[i].longitude+"&ssid="+workingSet[i].ssid+"&mac="+workingSet[i].mac+"&freq="+workingSet[i].frequency+"&sec="+workingSet[i].security+"&signal="+workingSet[i].signal;
+				xmlhttp.open("GET",url,true);
+				xmlhttp.send(null);
+				console.log(xmlhttp.responseText);
+				url="";
+			}
+		}
+					
+		//UPLOAD URL http://jmellor.net/wardriveapp/post.php?lat=00&long=00&ssid=%22NULLSSID%22&mac=NULLMAC&freq=0&sec=SOME&signal=11		
 //		for(i=0; i<arr.length; i++) {
 //			markerData[i]=arr[i];
 //			str+=arr[i].ssid + " " + arr[i].mac+arr[i].security + " " +arr[i].frequency + " " +arr[i].signal + " " +arr[i].lat+" "+arr[i].lon+"</br>";
 //		}
-		res.innerHTML=str;	
-		// THIS IS FOR LOCAL SQL STORAGE
-		for(i=0; i<arr.length; i++){
-			db.transaction(storeToDB, error, success);
-		}
-		// THIS IS FOR SERVER SIDE STORAGE
+		res.innerHTML=url;	
+
 	}
     function storeToDB(tx) {
         console.log("inserted "+tx.ssid);
