@@ -66,42 +66,57 @@ var WifiPlugin = {
 			newRes.push(obj);
 		}
 
-		url="jmellor.net/wardriveapp/post.php?";
+		url="http://jmellor.net/wardriveapp/post.php?";
 		var matches = false;
-		if(workingSet.length==0)
-			for(var q=0; q<newRes.length; q++)
+		//console.log("Length "+ workingSet.length);
+		if(workingSet.length==0){
+			for(var q=0; q<newRes.length; q++){
 				workingSet.push(newRes[q]);
+				//console.log("workingset "+workingSet[q].ssid);
+			}
+		} else {
+		//console.log("Length "+ workingSet.length);
+
 		for(var i=0; i< workingSet.length; i++){
 			matches=false;
 			for(var j=0; j<newRes.length; j++){
-				if(workingSet.mac==newRes.mac && workingSet.ssid==newRes.ssid){
+				if(workingSet[i].mac==newRes[j].mac && workingSet[i].ssid==newRes[j].ssid){
 					// the ap exists in workingSet and newRes
-					if(newRes.signal>workingSet.signal){
+//					console.log(workingSet[i].ssid+" IN newRES and workingSet");
+					if(newRes[j].signal>workingSet[i].signal){
 						//The Signal went up
+//						console.log(workingSet.ssid+" signal++");
 						workingSet[i]=newRes[j];
 						matches=true;
-					} else if (newRes.signal<workingSet.signal){
+					} else if (newRes[j].signal<workingSet[i].signal){
 						//We are getting further away so we should upload what we have
 						//upload workingSet[i]
+//						console.log(workingSet.ssid+" Is getting further away");
+						url="http://jmellor.net/wardriveapp/post.php?";
 						url+="lat="+workingSet[i].latitude+"&long="+workingSet[i].longitude+"&ssid="+workingSet[i].ssid+"&mac="+workingSet[i].mac+"&freq="+workingSet[i].frequency+"&sec="+workingSet[i].security+"&signal="+workingSet[i].signal;
 						xmlhttp.open("GET",url,true);
 						xmlhttp.send(null);
-						console.log(xmlhttp.responseText);
+//						console.log(xmlhttp.responseText);
 						url="";
 						matches=true;
 					}
 				}else{
-					//the new ap is in newRes but not in working set
+
 					workingSet.push(newRes[i]);
+					//the new ap is in newRes but not in working set
+//					console.log(workingSet[i].ssid+" added to WorkingSet");
 					matches=true;
 				}
 			}
 			//If matches==false, We lost the ap.
 			if(matches==false){
+//				console.log(workingSet.ssid+" ap is lost");
+				url="http://jmellor.net/wardriveapp/post.php?";
 				url+="lat="+workingSet[i].latitude+"&long="+workingSet[i].longitude+"&ssid="+workingSet[i].ssid+"&mac="+workingSet[i].mac+"&freq="+workingSet[i].frequency+"&sec="+workingSet[i].security+"&signal="+workingSet[i].signal;
 				xmlhttp.open("GET",url,true);
 				xmlhttp.send(null);
-				console.log(xmlhttp.responseText);
+				//console.log(xmlhttp.responseText);
+				console.log(url);
 				url="";
 			}
 		}
@@ -111,11 +126,12 @@ var WifiPlugin = {
 //			markerData[i]=arr[i];
 //			str+=arr[i].ssid + " " + arr[i].mac+arr[i].security + " " +arr[i].frequency + " " +arr[i].signal + " " +arr[i].lat+" "+arr[i].lon+"</br>";
 //		}
+		}
 		res.innerHTML=url;	
 
 	}
     function storeToDB(tx) {
-        console.log("inserted "+tx.ssid);
+       // console.log("inserted "+tx.ssid);
         tx.executeSql('INSERT INTO wifi (mac, ssid, security, signal, channel, latitude, longitude) VALUES (tx.mac, tx.ssid, tx.security, tx.signal, tx.frequency, tx.latitude, tx.longitude)');
 
     }
