@@ -79,19 +79,18 @@ $(document).ready(function(){
 		$('#scan-slider').slider().val(scanState).slider('refresh');
 		$('#scan-slider').bind('change', function(){
 			scanState = $(this).slider().val();
+			alert(scanState);
 		});
 		$('#wifi-toggle').unbind('change');
 		$('#wifi-toggle').val('wifiState').slider('refresh');
 		$('#wifi-toggle').bind('change', function() {
             wifiState = $(this).val();
-            if(wifiState == "On")
-            	turnOnWifi();
         });
 		
 	})
 })
 
-function saveSettings()
+function saveSetting()
 {
 	alert("Wifi State: " + wifiState + ', Scan Interval: ' + scanState);
 }

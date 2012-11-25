@@ -85,7 +85,7 @@ $(document).ready(function(){
 		$('#wifi-toggle').bind('change', function() {
             wifiState = $(this).val();
             if(wifiState == "On")
-            	turnOnWifi();
+            	WifiPlugin.callNativeFunction(wifiNativePluginSuccessHandler, nativePluginErrorHandler, "TurnOn", null);
         });
 		
 	})

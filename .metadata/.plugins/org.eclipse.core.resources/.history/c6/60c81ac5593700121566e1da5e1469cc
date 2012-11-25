@@ -84,14 +84,12 @@ $(document).ready(function(){
 		$('#wifi-toggle').val('wifiState').slider('refresh');
 		$('#wifi-toggle').bind('change', function() {
             wifiState = $(this).val();
-            if(wifiState == "On")
-            	turnOnWifi();
         });
 		
 	})
 })
 
-function saveSettings()
+function saveSetting()
 {
 	alert("Wifi State: " + wifiState + ', Scan Interval: ' + scanState);
 }
