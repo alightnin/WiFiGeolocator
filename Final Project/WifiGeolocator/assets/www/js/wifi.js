@@ -223,7 +223,7 @@ var WifiPlugin = {
 //				previous=arr[i].ssid;
 //			
 //			}
-//		}
+//		} 
 		$(".aps").trigger("create");
 		$('#analyzeResults').html(str);
 		$("#analyzeResults").trigger("create");
@@ -249,7 +249,7 @@ var WifiPlugin = {
 		xmlhttp.send(null);
 		//console.log(xmlhttp.responseText);
 
-		//console.log(url);
+		console.log(url);
 	}
 	
 	
