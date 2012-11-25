@@ -28,6 +28,18 @@ var WifiPlugin = {
 	function stopButtonPressed(){
 		clearInterval(inter);
 		//WE NEED TO UPLOAD/SAVE EVERYTHING IN workingSet now
+		var xmlhttp=new XMLHttpRequest();
+		console.log("length "+workingSet.length);
+		for(var i=0; i<workingSet.length-1; i++) {
+			console.log((workingSet.length-1)-i);
+			upload(workingSet[i]);
+//			var url="http://jmellor.net/wardriveapp/post.php?lat="+workingSet[i].latitude+"&long="+workingSet[i].longitude+"&ssid="+workingSet[i].ssid+"&mac="+workingSet[i].mac+"&freq="+workingSet[i].frequency+"&sec="+workingSet[i].security+"&signal="+workingSet[i].signal;
+//			xmlhttp.open("GET",url,true);
+//			xmlhttp.send(null);
+//			console.log(url);
+		
+		}
+			
 		stat.innerHTML="Idle"; 
 	}
 	function turnOnWifi(){
@@ -63,71 +75,86 @@ var WifiPlugin = {
 			lon: longitude,
 			};
 
-			newRes.push(obj);
+			//newRes.push(obj);
+			upload(obj);
 		}
 
-		url="http://jmellor.net/wardriveapp/post.php?";
-		var matches = false;
+//		url="http://jmellor.net/wardriveapp/post.php?";
+//		var matches = false;
 		//console.log("Length "+ workingSet.length);
-		if(workingSet.length==0){
-			for(var q=0; q<newRes.length; q++){
-				workingSet.push(newRes[q]);
-				//console.log("workingset "+workingSet[q].ssid);
-			}
-		} else {
-		//console.log("Length "+ workingSet.length);
-
-		for(var i=0; i< workingSet.length; i++){
-			matches=false;
-			for(var j=0; j<newRes.length; j++){
-				if(workingSet[i].mac==newRes[j].mac && workingSet[i].ssid==newRes[j].ssid){
-					// the ap exists in workingSet and newRes
+//		if(workingSet.length==0){
+//			for(var q=0; q<newRes.length-1; q++){
+//				console.log("!!!!!FIRST!!!!!!");
+//				workingSet.push(newRes[q]);
+//				//console.log("workingset "+workingSet[q].ssid);
+//			}
+//		} else {
+//		//console.log("Length "+ workingSet.length);
+//
+//		for(var i=0; i< workingSet.length; i++){
+//			matches=false;
+//			for(var j=0; j<newRes.length-1; j++){
+//				console.log("WorkingSet["+i+"] compared to newRes["+j+"]");
+//				console.log(workingSet.length);
+//				if(workingSet[i].mac==newRes[j].mac && workingSet[i].ssid==newRes[j].ssid){ 
+//					// the ap exists in workingSet and newRes
 //					console.log(workingSet[i].ssid+" IN newRES and workingSet");
-					if(newRes[j].signal>workingSet[i].signal){
-						//The Signal went up
-//						console.log(workingSet.ssid+" signal++");
-						workingSet[i]=newRes[j];
-						matches=true;
-					} else if (newRes[j].signal<workingSet[i].signal){
-						//We are getting further away so we should upload what we have
-						//upload workingSet[i]
-//						console.log(workingSet.ssid+" Is getting further away");
-						url="http://jmellor.net/wardriveapp/post.php?";
-						url+="lat="+workingSet[i].latitude+"&long="+workingSet[i].longitude+"&ssid="+workingSet[i].ssid+"&mac="+workingSet[i].mac+"&freq="+workingSet[i].frequency+"&sec="+workingSet[i].security+"&signal="+workingSet[i].signal;
-						xmlhttp.open("GET",url,true);
-						xmlhttp.send(null);
-//						console.log(xmlhttp.responseText);
-						url="";
-						matches=true;
-					}
-				}else{
-
-					workingSet.push(newRes[i]);
-					//the new ap is in newRes but not in working set
-//					console.log(workingSet[i].ssid+" added to WorkingSet");
-					matches=true;
-				}
-			}
-			//If matches==false, We lost the ap.
-			if(matches==false){
-//				console.log(workingSet.ssid+" ap is lost");
-				url="http://jmellor.net/wardriveapp/post.php?";
-				url+="lat="+workingSet[i].latitude+"&long="+workingSet[i].longitude+"&ssid="+workingSet[i].ssid+"&mac="+workingSet[i].mac+"&freq="+workingSet[i].frequency+"&sec="+workingSet[i].security+"&signal="+workingSet[i].signal;
-				xmlhttp.open("GET",url,true);
-				xmlhttp.send(null);
-				//console.log(xmlhttp.responseText);
-				console.log(url);
-				url="";
-			}
-		}
-					
-		//UPLOAD URL http://jmellor.net/wardriveapp/post.php?lat=00&long=00&ssid=%22NULLSSID%22&mac=NULLMAC&freq=0&sec=SOME&signal=11		
-//		for(i=0; i<arr.length; i++) {
-//			markerData[i]=arr[i];
-//			str+=arr[i].ssid + " " + arr[i].mac+arr[i].security + " " +arr[i].frequency + " " +arr[i].signal + " " +arr[i].lat+" "+arr[i].lon+"</br>";
+//					matches=true;
+//					if(newRes[j].signal>workingSet[i].signal){
+//						//The Signal went up
+//						console.log(workingSet[i].ssid+" signal++");
+//						workingSet[i]=newRes[j];
+//						matches=true;
+//					} else if (newRes[j].signal<workingSet[i].signal){
+//						//We are getting further away so we should upload what we have
+//						//upload workingSet[i]
+//						console.log(workingSet[i].ssid+" Is getting further away");
+//						upload(workingSet[i]);
+////						url="http://jmellor.net/wardriveapp/post.php?";
+////						url+="lat="+workingSet[i].latitude+"&long="+workingSet[i].longitude+"&ssid="+workingSet[i].ssid+"&mac="+workingSet[i].mac+"&freq="+workingSet[i].frequency+"&sec="+workingSet[i].security+"&signal="+workingSet[i].signal;
+////						xmlhttp.open("GET",url,true);
+////						xmlhttp.send(null);
+//////						console.log(xmlhttp.responseText);
+////						url="";
+//						matches=true;
+//					}
+//			} //else {
+//////				console.log(workingSet[i].ssid+" no change");
+////				matches=true;
+////				//break;
+////			
+////				
+////			}//else{
+////
+////				//	workingSet.push(newRes[i]);
+////					//the new ap is in newRes but not in working set
+//////					console.log(workingSet[i].ssid+" added to WorkingSet");
+////					matches=true;
+////				}
+//			}
+//			//If matches==false, We lost the ap.
+//			if(matches==false){
+//					//workingSet.push(newRes[i]);
+//
+//				console.log(workingSet[i].ssid+" ap is lost");
+//				upload(workingSet[i]);
+////				url="http://jmellor.net/wardriveapp/post.php?";
+////				url+="lat="+workingSet[i].latitude+"&long="+workingSet[i].longitude+"&ssid="+workingSet[i].ssid+"&mac="+workingSet[i].mac+"&freq="+workingSet[i].frequency+"&sec="+workingSet[i].security+"&signal="+workingSet[i].signal;
+////				xmlhttp.open("GET",url,true);
+////				xmlhttp.send(null);
+////				//console.log(xmlhttp.responseText);
+////				console.log(url);
+////				url="";
+//			}
 //		}
-		}
-		res.innerHTML=url;	
+//					
+//		//UPLOAD URL http://jmellor.net/wardriveapp/post.php?lat=00&long=00&ssid=%22NULLSSID%22&mac=NULLMAC&freq=0&sec=SOME&signal=11		
+////		for(i=0; i<arr.length; i++) {
+////			markerData[i]=arr[i];
+////			str+=arr[i].ssid + " " + arr[i].mac+arr[i].security + " " +arr[i].frequency + " " +arr[i].signal + " " +arr[i].lat+" "+arr[i].lon+"</br>";
+////		}
+//		}
+//		res.innerHTML=url;	
 
 	}
     function storeToDB(tx) {
@@ -212,6 +239,17 @@ var WifiPlugin = {
 	function showDiv(divToShow) {
 		$("#"+divToShow).toggle();
 		//console.log("here");
+	}
+	function upload(toUp){
+		var xmlhttp=new XMLHttpRequest();
+		console.log(toUp.ssid);
+		var url="http://jmellor.net/wardriveapp/post.php?";
+		url +="lat="+toUp.latitude+"&long="+toUp.longitude+"&ssid="+toUp.ssid+"&mac="+toUp.mac+"&freq="+toUp.frequency+"&sec="+toUp.security+"&signal="+toUp.signal;
+		xmlhttp.open("GET",url,true);
+		xmlhttp.send(null);
+		//console.log(xmlhttp.responseText);
+
+		//console.log(url);
 	}
 	
 	
