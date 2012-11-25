@@ -9,7 +9,10 @@ public class WiFiGeolocator extends DroidGap {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        super.setIntegerProperty("loadUrlTimeoutValue", 60000); 
         super.loadUrl("file:///android_asset/www/pages.html");
+//        super.loadUrl("file:///android_asset/www/testPost.html");
+
     }
 
     @Override

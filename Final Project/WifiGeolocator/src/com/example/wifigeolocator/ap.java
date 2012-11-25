@@ -41,7 +41,7 @@ public class ap extends ScannerPlugin{
 		case 2467: freq = 12; break;
 		case 2472: freq = 13; break;
 		case 2484: freq = 10; break;
-		default: freq = -1; break;
+		default: freq = scanResult.frequency; break;
 		}
 
 		signal=scanResult.level;
