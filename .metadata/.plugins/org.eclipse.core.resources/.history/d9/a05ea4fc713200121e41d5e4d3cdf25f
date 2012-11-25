@@ -134,11 +134,7 @@
 				<select name="wifi-toggle" id="wifi-toggle" data-role="slider">
 					<option value="Off">Off</option>
 					<option value="On">On</option>
-				</select>
-							
-			</div>
-			<div data-role="fieldcontain">
-				<h1 id='wifistate' style="display: none"></h1>
+				</select>			
 			</div>
 			<div data-role="fieldcontain">
 				<input type="button" name="save" value="Save Settings" id="saveset" onclick="saveSettings()"/>

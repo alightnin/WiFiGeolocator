@@ -63,18 +63,7 @@ function onBodyLoad()
 
 }
 
-$(document).ready(function(){
-	$('#settings').bind('pageshow', function(){
-		$('#wifi-toggle').unbind('change');
-		$('#wifistate').html('');
-		var newState = 'off';
-		$('#wifi-toggle').val('newState').slider('refresh');
-		$('#wifi-toggle').bind('change', function() {
-            alert('WiFi is now ' + jQuery(this).val());
-        });
-		
-	})
-})
+
 
 
 

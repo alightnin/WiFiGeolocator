@@ -70,9 +70,8 @@ $(document).ready(function(){
 		var newState = 'off';
 		$('#wifi-toggle').val('newState').slider('refresh');
 		$('#wifi-toggle').bind('change', function() {
-            alert('WiFi is now ' + jQuery(this).val());
+            alert('WiFi is now ' + jQuery(this).val() + '<BR>');
         });
-		
 	})
 })
 

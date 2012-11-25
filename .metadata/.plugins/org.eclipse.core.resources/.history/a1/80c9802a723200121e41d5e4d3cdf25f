@@ -135,10 +135,7 @@
 					<option value="Off">Off</option>
 					<option value="On">On</option>
 				</select>
-							
-			</div>
-			<div data-role="fieldcontain">
-				<h1 id='wifistate' style="display: none"></h1>
+				<p id='wifistate'></p>			
 			</div>
 			<div data-role="fieldcontain">
 				<input type="button" name="save" value="Save Settings" id="saveset" onclick="saveSettings()"/>

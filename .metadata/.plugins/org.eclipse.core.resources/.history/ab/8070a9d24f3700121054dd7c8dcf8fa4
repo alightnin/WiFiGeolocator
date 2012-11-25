@@ -72,7 +72,6 @@ $(document).ready(function(){
 		$('#wifi-toggle').bind('change', function() {
             alert('WiFi is now ' + jQuery(this).val());
         });
-		
 	})
 })
 
