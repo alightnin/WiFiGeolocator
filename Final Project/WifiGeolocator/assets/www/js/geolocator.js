@@ -60,6 +60,7 @@ function onBodyLoad()
 	
 	
 	$('#stopButton').hide();
+	$('#analyzeStopButton').hide();
 //	stat=document.getElementById('status');
 //	res=document.getElementById('results');
 //	analyzeResults=document.getElementById('analyzeResults');
