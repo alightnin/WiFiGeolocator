@@ -85,7 +85,7 @@ $(document).ready(function(){
 			else
 			{
 				alert("WiFi is Off.");
-			}
+			};
 		}
 		$('#scan-slider').unbind('change');
 		$('#scan-slider').slider().val(scanState).slider('refresh');
@@ -99,7 +99,7 @@ $(document).ready(function(){
             if(wifiState == "On")
             {
             	turnOnWifi();
-            }
+            };
             else
             	alert("WiFi is Off");
         });	
