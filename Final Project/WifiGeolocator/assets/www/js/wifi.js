@@ -7,7 +7,7 @@ var WifiPlugin = {
 	APobj = new Object();
 	APobj.ssid = "NULL";
 	APobj.mac="NULL";
-	APobj.security="NULL";
+	APobj.security="NULL"; 
 	APobj.frequency=-999;
 	APobj.signal=-999;
 	APobj.lat=0;
@@ -40,7 +40,7 @@ var WifiPlugin = {
 		WifiPlugin.callNativeFunction(wifiNativePluginSuccessHandler, nativePluginErrorHandler, "TurnOn", null);
 	}
 	function startScanning(scanType) {
-		res.innerHTML=" ";
+		//res.innerHTML=" ";
 		WifiPlugin.callNativeFunction(scanType, nativePluginErrorHandler, "Scan", null);
 	}
 
