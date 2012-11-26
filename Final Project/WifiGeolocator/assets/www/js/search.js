@@ -7,7 +7,7 @@ function startSearch() {
 			tbl+="<tr><td>"+ap.ssid+"  </td><td>"+ap.security+"  </td><td>latitude: "+ap.latitude+"  </td><td>longitude: "+ ap.longitude+"  </td></tr>";
 			console.log(tbl);
 			document.getElementById("searchRes").innerHTML="";
-			document.getElementById("searchRes").innerHTML=tbl+"</table>";
+			document.getElementById("searchRes").innerHTML="asdfa" //tbl+"</table>";
 
 		});
 });

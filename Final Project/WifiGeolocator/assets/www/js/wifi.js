@@ -16,13 +16,13 @@ var WifiPlugin = {
 
 
 	function startButtonPressed(scanType){
-		//if(latitude!=-999 && longitude!=-999){
+		if(latitude!=-999 && longitude!=-999){
 			inter=setInterval(function(){startScanning(scanType)}, 3000);
 			//startScanning();
 //			stat.innerHTML="Scanning...";
-		//}else{
-		//	alert("You need to turn on your GPS");
-		//}
+		}else{
+			alert("You need to turn on your GPS");
+		}
 		$('#startButton').hide();
 		$('#stopButton').show();
 		$('#analyzeStartButton').hide();
