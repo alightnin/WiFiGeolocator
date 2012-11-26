@@ -1,6 +1,6 @@
 var theScroll;
 var markerData=[];
-var latitude, longitude;
+var latitude=0, longitude=0;
 var db;
 var wifiState = 'Off';
 var scanState = 2;
