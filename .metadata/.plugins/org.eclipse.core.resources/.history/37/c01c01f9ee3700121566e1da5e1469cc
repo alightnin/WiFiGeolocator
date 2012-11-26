@@ -40,7 +40,7 @@ var WifiPlugin = {
 		WifiPlugin.callNativeFunction(wifiNativePluginSuccessHandler, nativePluginErrorHandler, "TurnOn", null);
 	}
 	function startScanning(scanType) {
-		//res.innerHTML=" ";
+		res.innerHTML=" ";
 		WifiPlugin.callNativeFunction(scanType, nativePluginErrorHandler, "Scan", null);
 	}
 
