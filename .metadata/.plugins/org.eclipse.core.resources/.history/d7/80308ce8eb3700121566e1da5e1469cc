@@ -4,7 +4,6 @@ var latitude=0, longitude=0;
 var db;
 var wifiState = 'Off';
 var scanState = 2;
-var keyscan, valuescan, keywifi, valuewifi;
 
 //document.addEventListener('DOMContentLoaded', scroll, false);
 
@@ -60,7 +59,6 @@ function onBodyLoad()
 	
 	
 	$('#stopButton').hide();
-	$('#analyzeStopButton').hide();
 //	stat=document.getElementById('status');
 //	res=document.getElementById('results');
 //	analyzeResults=document.getElementById('analyzeResults');
@@ -82,14 +80,6 @@ $(document).ready(function(){
 		}
 		for(keywifi in localStorage){
 			wifiState = valuewifi;
-			if(wifiState == "On")
-			{
-				alert("WiFi is On.");
-			};
-			else
-			{
-				alert("WiFi is Off.");
-			};
 		}
 		$('#scan-slider').unbind('change');
 		$('#scan-slider').slider().val(scanState).slider('refresh');
@@ -100,25 +90,14 @@ $(document).ready(function(){
 		$('#wifi-toggle').val('wifiState').slider('refresh');
 		$('#wifi-toggle').bind('change', function() {
             wifiState = $(this).val();
-            if(wifiState == "On")
-            {
-            	turnOnWifi();
-            };
         });	
 	})
 })
 
 function saveSettings()
 {
-	if(wifiState == "On")
-		turnOnWifi();
-	saveSet();
+	var keyscan, valuescan, keywifi, valuewifi;
 	
-	
-}
-
-function saveSet()
-{
 	keyscan = "ScanInt";
 	valuescan = $('#scan-slider').slider().val();
 	console.log("Key: " + keyscan + " Value: " + valuescan);
@@ -130,6 +109,11 @@ function saveSet()
 	localStorage.setItem(keywifi, valuewifi);
 	
 	alert("Settings now saved!");
+	if(wifiState == "On")
+	{
+		turnWifiOn();
+		alert("Turning WiFi On.")
+	}
 }
 
 

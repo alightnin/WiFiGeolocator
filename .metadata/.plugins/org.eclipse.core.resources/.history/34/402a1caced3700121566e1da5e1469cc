@@ -60,7 +60,6 @@ function onBodyLoad()
 	
 	
 	$('#stopButton').hide();
-	$('#analyzeStopButton').hide();
 //	stat=document.getElementById('status');
 //	res=document.getElementById('results');
 //	analyzeResults=document.getElementById('analyzeResults');
@@ -84,12 +83,9 @@ $(document).ready(function(){
 			wifiState = valuewifi;
 			if(wifiState == "On")
 			{
-				alert("WiFi is On.");
-			};
-			else
-			{
-				alert("WiFi is Off.");
-			};
+				turnOnWifi();
+				alert("WiFi is On.")
+			}
 		}
 		$('#scan-slider').unbind('change');
 		$('#scan-slider').slider().val(scanState).slider('refresh');
