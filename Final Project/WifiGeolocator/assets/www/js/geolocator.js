@@ -56,17 +56,18 @@ var stat;
 var res;
 function onBodyLoad() 
 {   
-	stat=document.getElementById('status');
-	res=document.getElementById('results');
-	analyzeResults=document.getElementById('analyzeResults');
-	stat.innerHTML="Idle";
-	res.innerHTML="Waiting for Results";
+	$('#stopButton').hide();
+//	stat=document.getElementById('status');
+//	res=document.getElementById('results');
+//	analyzeResults=document.getElementById('analyzeResults');
+//	stat.innerHTML="Idle";
+//	res.innerHTML="Waiting for Results";
 	analyzeResults.innerHTML="Nothing to report";
 	var mapcanvas=document.getElementById('map_canvas');
 	mapcanvas.style.width=window.innerWidth-30+'px';
 	mapcanvas.style.height=window.innerHeight-80+'px';
-	var str = "Width: "+window.innerWidth+ " Height: "+ window.innerHeight;
-	res.innerHTML=str;
+//	var str = "Width: "+window.innerWidth+ " Height: "+ window.innerHeight;
+//	res.innerHTML=str;
 //	turnOnWifi();
 	
 	

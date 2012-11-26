@@ -19,14 +19,18 @@ var WifiPlugin = {
 		//if(latitude!=-999 && longitude!=-999){
 			inter=setInterval(function(){startScanning(scanType)}, 3000);
 			//startScanning();
-			stat.innerHTML="Scanning...";
+//			stat.innerHTML="Scanning...";
 		//}else{
 		//	alert("You need to turn on your GPS");
 		//}
+		$('#startButton').hide();
+		$('#stopButton').show();
 	}
 	function stopButtonPressed(){
 		clearInterval(inter);
-		stat.innerHTML="Idle"; 
+//		stat.innerHTML="Idle"; 
+		$('#stopButton').hide();
+		$('#startButton').show();
 	}
 	function turnOnWifi(){
 		WifiPlugin.callNativeFunction(wifiNativePluginSuccessHandler, nativePluginErrorHandler, "TurnOn", null);

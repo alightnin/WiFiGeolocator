@@ -57,8 +57,8 @@
 			<div data-role="fieldcontain">
     			<label for="capture-method" class="select">Capture To:</label>
     			<select name="capture-method" id="capture-method">
-   					<option value="sd">SD Card</option>
-    				<option value="cloud">Cloud</option>
+   					<option value="cloud">Cloud</option>
+    				<option value="sd">Coming in v2.0</option>
     			</select>
     		</div>
    			<div data-role="fieldcontain">
@@ -69,12 +69,12 @@
     			<label for="longitude">Longitude:</label>
    				<label id="longitude"></label>    				
    			</div>
-   			<div><button onclick="startButtonPressed(captureNativePluginSuccessHandler)">Capture</button></div>
+   			<div id="startButton"><button onclick="startButtonPressed(captureNativePluginSuccessHandler)">Capture</button></div>
    			<div id="stopButton"><button onclick="stopButtonPressed()">Stop Capture</button></div>
-   			<div><button onclick="turnOnWifi()">Turn On Wifi</button></div>
+   			<!-- <div><button onclick="turnOnWifi()">Turn On Wifi</button></div> -->
    		<!--  	<button onclick="captureNativePluginSuccessHandler('result')">testupload</button>-->
-   			<div id="status">Waiting</div>
-   			<div id="results">Waiting</div>
+   			<!--<div id="status">Waiting</div>
+   			<div id="results">Waiting</div>  -->
 		</div>
 		<div id="footer" data-role="footer" data-theme="a" data-position="fixed">
 			<div data-role="controlgroup" data-type="horizontal">
