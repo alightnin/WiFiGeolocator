@@ -11,7 +11,8 @@
 	    <script  src="js/jquery.ui.map.js"></script>
 		<script src="js/geolocator.js"></script>
 		<script src="js/wifi.js"></script>
-		<script src="js/map.js"></script>		
+		<script src="js/map.js"></script>	
+		<script src="js/search.js"></script>	
 		<title>WiFi GeoLocator</title> 
 	</head>
 	<body onload="onBodyLoad()" >
@@ -105,12 +106,11 @@
 		</div>
 	</div>
 	<!-- End of Map Page -->
+	<!-- Start of Search Page -->
 	<div id="search" data-role="page" data-theme="a" data-title="Search">
 		<div data-role="content">
-			<button>Find AP's Near Me</button>
-			<form>
-				<input type="text" placeholder="Enter City" name="city"/>		
-			</form>
+			<button onclick="startSearch()">Find AP's Near Me</button>
+			<div id="searchRes"></div>
 		</div>
 		<div id="footer" data-role="footer" data-theme="a" data-position="fixed">
 			<div data-role="controlgroup" data-type="horizontal">
@@ -123,6 +123,8 @@
 			</div>
 		</div>
 	</div>
+	<!-- End of Seach Page -->
+	<!-- Start of Setting Page -->
 	<div id="settings" data-role="page" data-theme="a" data-title="Settings">
 		<div data-role="content">
 			<div data-role="fieldcontain">

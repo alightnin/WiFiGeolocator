@@ -10,7 +10,7 @@ $('#map').live("pageshow", function() {
 });
 $('#map').live("pageinit", function() {
 	$('#map_canvas').gmap({'center': '39, -108'});
-	$.getJSON(serviceURL+'/json.php', function(data) { 
+	$.getJSON(serviceURL+'/json.php?lat=0&long=0', function(data) { 
 		$.each( data.aps, function(i, marker) {
 			$('#map_canvas').gmap('addMarker', { 
 				'position': new google.maps.LatLng(marker.latitude, marker.longitude), 
