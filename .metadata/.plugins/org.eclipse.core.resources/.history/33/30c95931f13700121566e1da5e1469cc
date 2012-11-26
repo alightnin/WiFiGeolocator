@@ -26,14 +26,7 @@ body { height: 100%; margin: 0; padding: 0px}
 #footer a {
 	width:19%;
 }
-#stopButton
-{
-	display: none;
-}
-#analyzeStopButton
-{
-	display: none;
-}
+
 .ui-icon-my-camera {
 	background-image: url("../images/icons/86-camera.png");
 	background-size: 18px, 18px;

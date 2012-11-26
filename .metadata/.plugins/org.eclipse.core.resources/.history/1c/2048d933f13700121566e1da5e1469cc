@@ -70,7 +70,7 @@
    				<label id="longitude"></label>    				
    			</div>
    			<div id="startButton"><button onclick="startButtonPressed(captureNativePluginSuccessHandler)">Capture</button></div>
-   			<div id="stopButton"><button onclick="stopButtonPressed()" >Stop Capture</button></div>
+   			<div id="stopButton"><button onclick="stopButtonPressed()">Stop Capture</button></div>
    			<!-- <div><button onclick="turnOnWifi()">Turn On Wifi</button></div> -->
    		<!--  	<button onclick="captureNativePluginSuccessHandler('result')">testupload</button>-->
    			<!--<div id="status">Waiting</div>
