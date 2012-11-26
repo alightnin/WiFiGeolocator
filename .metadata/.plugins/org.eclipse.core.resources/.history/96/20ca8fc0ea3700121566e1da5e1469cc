@@ -4,7 +4,6 @@ var latitude=0, longitude=0;
 var db;
 var wifiState = 'Off';
 var scanState = 2;
-var keyscan, valuescan, keywifi, valuewifi;
 
 //document.addEventListener('DOMContentLoaded', scroll, false);
 
@@ -57,8 +56,6 @@ var stat;
 var res;
 function onBodyLoad() 
 {   
-	
-	
 	$('#stopButton').hide();
 //	stat=document.getElementById('status');
 //	res=document.getElementById('results');
@@ -72,24 +69,20 @@ function onBodyLoad()
 //	var str = "Width: "+window.innerWidth+ " Height: "+ window.innerHeight;
 //	res.innerHTML=str;
 //	turnOnWifi();
+	if(wifiState == "On")
+		turnWifiOn();
+	
+
 }
 
 $(document).ready(function(){
+	for(keyscan in localStorage){
+		scanState = valuescan;
+	}
+	for(keywifi in localStorage){
+		wifiState = valuewifi;
+	}
 	$('#settings').bind('pageshow', function(){
-		for(keyscan in localStorage){
-			scanState = valuescan;
-		}
-		for(keywifi in localStorage){
-			wifiState = valuewifi;
-			if(wifiState == "On")
-			{
-				alert("WiFi is On.");
-			};
-			else
-			{
-				alert("WiFi is Off.");
-			};
-		}
 		$('#scan-slider').unbind('change');
 		$('#scan-slider').slider().val(scanState).slider('refresh');
 		$('#scan-slider').bind('change', function(){
@@ -99,25 +92,14 @@ $(document).ready(function(){
 		$('#wifi-toggle').val('wifiState').slider('refresh');
 		$('#wifi-toggle').bind('change', function() {
             wifiState = $(this).val();
-            if(wifiState == "On")
-            {
-            	turnOnWifi();
-            };
         });	
 	})
 })
 
 function saveSettings()
 {
-	if(wifiState == "On")
-		turnOnWifi();
-	saveSet();
+	var keyscan, valuescan, keywifi, valuewifi;
 	
-	
-}
-
-function saveSet()
-{
 	keyscan = "ScanInt";
 	valuescan = $('#scan-slider').slider().val();
 	console.log("Key: " + keyscan + " Value: " + valuescan);
@@ -125,10 +107,9 @@ function saveSet()
 	
 	keywifi = "Wifi";
 	valuewifi = $('#wifi-toggle').val();
-	console.log("Key: " + keywifi + " Value: " + valuewifi);
 	localStorage.setItem(keywifi, valuewifi);
 	
-	alert("Settings now saved!");
+	alert("Settings now saved!")
 }
 
 
