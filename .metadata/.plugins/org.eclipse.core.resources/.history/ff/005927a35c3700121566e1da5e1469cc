@@ -74,12 +74,6 @@ function onBodyLoad()
 }
 
 $(document).ready(function(){
-	for(keyscan in localStorage){
-		scanState = valuescan;
-	}
-	for(keywifi in localStorage){
-		wifiState = valuewifi;
-	}
 	$('#settings').bind('pageshow', function(){
 		$('#scan-slider').unbind('change');
 		$('#scan-slider').slider().val(scanState).slider('refresh');
@@ -92,24 +86,14 @@ $(document).ready(function(){
             wifiState = $(this).val();
             if(wifiState == "On")
             	turnOnWifi();
-        });	
+        });
+		
 	})
 })
 
 function saveSettings()
 {
-	var keyscan, valuescan, keywifi, valuewifi;
-	
-	keyscan = "ScanInt";
-	valuescan = $('#scan-slider').slider().val();
-	console.log("Key: " + keyscan + " Value: " + valuescan);
-	localStorage.setItem(keyscan, valuescan);
-	
-	keywifi = "Wifi";
-	valuewifi = $('#wifi-toggle').val();
-	localStorage.setItem(keywifi, valuewifi);
-	
-	alert("Settings now saved!")
+	alert("Wifi State: " + wifiState + ', Scan Interval: ' + scanState);
 }
 
 

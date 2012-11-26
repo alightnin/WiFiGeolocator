@@ -74,12 +74,6 @@ function onBodyLoad()
 }
 
 $(document).ready(function(){
-	for(keyscan in localStorage){
-		scanState = valuescan;
-	}
-	for(keywifi in localStorage){
-		wifiState = valuewifi;
-	}
 	$('#settings').bind('pageshow', function(){
 		$('#scan-slider').unbind('change');
 		$('#scan-slider').slider().val(scanState).slider('refresh');
@@ -100,12 +94,11 @@ function saveSettings()
 {
 	var keyscan, valuescan, keywifi, valuewifi;
 	
-	keyscan = "ScanInt";
+	keyscan = $('#scan-slider');
 	valuescan = $('#scan-slider').slider().val();
-	console.log("Key: " + keyscan + " Value: " + valuescan);
 	localStorage.setItem(keyscan, valuescan);
 	
-	keywifi = "Wifi";
+	keywifi = $('#wifi-toggle');
 	valuewifi = $('#wifi-toggle').val();
 	localStorage.setItem(keywifi, valuewifi);
 	

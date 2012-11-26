@@ -100,12 +100,12 @@ function saveSettings()
 {
 	var keyscan, valuescan, keywifi, valuewifi;
 	
-	keyscan = "ScanInt";
+	keyscan = "Scan Interval";
 	valuescan = $('#scan-slider').slider().val();
 	console.log("Key: " + keyscan + " Value: " + valuescan);
 	localStorage.setItem(keyscan, valuescan);
 	
-	keywifi = "Wifi";
+	keywifi = $('#wifi-toggle');
 	valuewifi = $('#wifi-toggle').val();
 	localStorage.setItem(keywifi, valuewifi);
 	
