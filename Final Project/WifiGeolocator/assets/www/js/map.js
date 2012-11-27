@@ -3,14 +3,16 @@ var serviceURL = "http://jmellor.net/wardriveapp/";
 $(function() {
 	var yourStartLatLng = new google.maps.LatLng(39, -108);
 		$('#map_canvas').gmap({'center': yourStartLatLng});
+		$('#map_canvas').gmap('option', 'zoom', 17);
 });
 $('#map').live("pageshow", function() {
 	$('#map_canvas').gmap('refresh');
 
 });
 $('#map').live("pageinit", function() {
-	$('#map_canvas').gmap({'center': '39, -108'});
-	$.getJSON(serviceURL+'/json.php?lat=0&long=0', function(data) { 
+	//alert(latitude+ " "+longitude); 
+	$('#map_canvas').gmap('option', 'zoom', 17);
+	$.getJSON(serviceURL+'/json.php?lat='+latitude+'&long='+longitude, function(data) { 
 		$.each( data.aps, function(i, marker) {
 			$('#map_canvas').gmap('addMarker', { 
 				'position': new google.maps.LatLng(marker.latitude, marker.longitude), 

@@ -21,7 +21,7 @@ function page(toPage) {
     });
     fromPage.addClass("fade out");
 }
-
+ 
 
 
 //Getting Latitude and Longitude
@@ -29,12 +29,19 @@ document.addEventListener("deviceready", deviceReady, false);
 var watchID = null;
 var network = null;
 function deviceReady() {
-    watchID = navigator.geolocation.watchPosition(success, error, { frequency: 3000 });
+
+    navigator.geolocation.watchPosition(success, error);
+    //alert("Ready");
+//    if (navigator.geolocation){
+//    	navigator.geolocation.getCurrentPosition(showPosition);
+//    }else{
+//    	alert("Geolocation is not supported by this browser.");
+//    }
+  }
 //    db = window.openDatabase("wifi", "1.0", "wifiStorage", 200000);
 //    db.transaction(startDB, error, success);
     //if(setting to turn on wifi on startup)
  
-}
 function startDB(tx) {
     tx.executeSql('CREATE TABLE IF NOT EXISTS wifi (id unique, data)');
 }
@@ -45,13 +52,12 @@ function success(position) {
     var elementLong = document.getElementById('longitude');
     longitude = position.coords.longitude;
     elementLong.innerHTML = longitude;
+   // alert("Success");
 }
 function error(error) {
     alert(error.message);
 }
-function success(){
-	//alert("YAY");
-}
+ 
 var inter;
 var stat;
 var res;
