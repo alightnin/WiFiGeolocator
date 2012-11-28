@@ -99,7 +99,7 @@ var WifiPlugin = {
 			if(arr[i].ssid!=previous) {
 
 					ids.push(identity);
-					str+="<div onclick=\"showDiv(\'listdiv"+identity+"\')\" id=\"maindiv"+arr[i].ssid+"\" data-role=\"listview\" data-inset=\"true\"><h3>"+arr[i].ssid+"<progress value="+Math.abs(arr[i].signal)+" max=\"100\"></progress>"+arr[i].signal+"</div>";
+					str+="<div onclick=\"showDiv(\'listdiv"+identity+"\')\" id=\"maindiv"+arr[i].ssid+"\" data-role=\"listview\" data-inset=\"true\"><table><tr><td><h3>"+arr[i].ssid+"<h3></td><td><progress value="+Math.abs(arr[i].signal)+" max=\"100\"></progress>"+arr[i].signal+"</td></tr><tr><td>Channel:"+arr[i].frequency+"</td><td>Security: "+arr[i].security+"</td></tr></table></div>";
 
 				if(arr[i].ssid==next)
 				{ 
@@ -120,7 +120,6 @@ var WifiPlugin = {
 		$(".aps").trigger("create");
 		$('#analyzeResults').html(str);
 		$("#analyzeResults").trigger("create");
-		//hideDivs();
 		$(".sublists").hide();
 		$("#"+divShowing).show();
 	}

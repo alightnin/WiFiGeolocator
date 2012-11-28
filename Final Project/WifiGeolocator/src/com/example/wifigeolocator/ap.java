@@ -41,7 +41,20 @@ public class ap extends ScannerPlugin{
 		case 2467: freq = 12; break;
 		case 2472: freq = 13; break;
 		case 2484: freq = 10; break;
-		default: freq = -1; break;
+		case 5180: freq = 36; break;
+		case 5200: freq = 40; break;
+		case 5220: freq = 44; break;
+		case 5240: freq = 48; break;
+		case 5260: freq = 52; break;
+		case 5280: freq = 56; break;
+		case 5300: freq = 60; break;
+		case 5320: freq = 64; break;
+		case 5500: freq = 100; break;
+		case 5520: freq = 104; break;
+		case 5540: freq = 108; break;
+		case 5560: freq = 112; break;
+		case 5580: freq = 116; break;
+		default: freq = scanResult.frequency; break;
 		}
 
 		signal=scanResult.level;
