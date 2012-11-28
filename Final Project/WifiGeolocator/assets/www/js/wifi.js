@@ -1,4 +1,5 @@
 //Plugin JS
+var divShowing;
 var WifiPlugin = {
 		callNativeFunction: function (success, fail, native_action, resultType) {
 		return cordova.exec( success, fail, "com.example.wifigeolocator", native_action, [resultType]);
@@ -98,7 +99,7 @@ var WifiPlugin = {
 			if(arr[i].ssid!=previous) {
 
 					ids.push(identity);
-					str+="<div onclick=\"showDiv(\'listdiv"+identity+"\')\" id=\"maindiv"+arr[i].ssid+"\" data-role=\"listview\" data-inset=\"true\"><h3>SSID: "+arr[i].ssid+" SIGNAL: <progress value="+ arr[i].signal+" max=\"-100\"></progress>"+arr[i].signal+"</div>";
+					str+="<div onclick=\"showDiv(\'listdiv"+identity+"\')\" id=\"maindiv"+arr[i].ssid+"\" data-role=\"listview\" data-inset=\"true\"><h3>"+arr[i].ssid+"<progress value="+Math.abs(arr[i].signal)+" max=\"100\"></progress>"+arr[i].signal+"</div>";
 
 				if(arr[i].ssid==next)
 				{ 
@@ -119,7 +120,9 @@ var WifiPlugin = {
 		$(".aps").trigger("create");
 		$('#analyzeResults').html(str);
 		$("#analyzeResults").trigger("create");
+		//hideDivs();
 		$(".sublists").hide();
+		$("#"+divShowing).show();
 	}
 	function nativePluginErrorHandler(result) {
 		alert("Error "+result);
@@ -129,8 +132,13 @@ var WifiPlugin = {
 	}
 	
 	function showDiv(divToShow) {
+		if ( $("#"+divToShow).is(':visible') )
+			divShowing="";
+		else 
+			divShowing=divToShow;
 		$("#"+divToShow).toggle();
 		//console.log("here");
 	}
+
 	
 	
