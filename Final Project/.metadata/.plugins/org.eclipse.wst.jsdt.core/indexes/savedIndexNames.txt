@@ -1,5 +1,0 @@
-INDEX VERSION 1.122+/Users/craigweir/Dropbox/School/Fall 2012/CSCI 396(Mobile Apps)/Final Project/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
-2505282143.index
-3942024417.index
-2054403219.index
-1187621037.index
