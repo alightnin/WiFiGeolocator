@@ -63,7 +63,6 @@ var stat;
 var res;
 function onBodyLoad() 
 {   
-
 //	stat=document.getElementById('status');
 //	res=document.getElementById('results');
 //	analyzeResults=document.getElementById('analyzeResults');
@@ -79,9 +78,8 @@ function onBodyLoad()
 }
 
 $(document).ready(function(){
-	$('#settings').live('pageshow', function(){
+	$('#settings').bind('pageshow', function(){
 		for(keyscan in localStorage){
-			alert(keyscan + ": " + valuescan);
 			scanState = valuescan;
 			$('scan-slider').val(scanState).slider('refresh');
 		}
@@ -89,7 +87,7 @@ $(document).ready(function(){
 			wifiState = valuewifi;
 			if(wifiState == "On")
 			{
-				
+				$('#wifi-toggle').val('wifiState').slider('refresh');
 			}
 			else
 			{

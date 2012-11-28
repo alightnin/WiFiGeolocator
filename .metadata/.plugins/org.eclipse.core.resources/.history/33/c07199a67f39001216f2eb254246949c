@@ -63,7 +63,7 @@ var stat;
 var res;
 function onBodyLoad() 
 {   
-
+	alert(keyscan + ": " + valuescan);
 //	stat=document.getElementById('status');
 //	res=document.getElementById('results');
 //	analyzeResults=document.getElementById('analyzeResults');
@@ -81,7 +81,6 @@ function onBodyLoad()
 $(document).ready(function(){
 	$('#settings').live('pageshow', function(){
 		for(keyscan in localStorage){
-			alert(keyscan + ": " + valuescan);
 			scanState = valuescan;
 			$('scan-slider').val(scanState).slider('refresh');
 		}
