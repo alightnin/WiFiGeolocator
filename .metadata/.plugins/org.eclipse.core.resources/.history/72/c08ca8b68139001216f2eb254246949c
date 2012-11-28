@@ -82,23 +82,28 @@ $(document).ready(function(){
 	$('#settings').bind('pageshow', function(){
 		for(key in localStorage){
 			if(key=="ScanInt")
-			{
-				scanState = localStorage.getItem('ScanInt');
-				$('#scan-slider').slider().val(scanState).slider('refresh');
-			}
+				alert(localStorage.getItem('ScanInt'));
 			if(key=="Wifi")
+				alert(localStorage.getItem('Wifi'));
+		}
+		for(keywifi in localStorage){
+			wifiState = valuewifi;
+			if(wifiState == "On")
 			{
-				wifiState = localStorage.getItem('Wifi');
-				$('wifi-toggle').val(wifiState).slider('refresh');
+				alert("WiFi is On.");
+			}
+			else
+			{
+				alert("WiFi is Off.");
 			}
 		}
 		$('#scan-slider').unbind('change');
-		$('#scan-slider').slider().val(scanState);
+		$('#scan-slider').slider().val(scanState).slider('refresh');
 		$('#scan-slider').bind('change', function(){
 			scanState = $(this).slider().val();
 		});
 		$('#wifi-toggle').unbind('change');
-		//$('#wifi-toggle').val('wifiState');
+		$('#wifi-toggle').val('wifiState').slider('refresh');
 		$('#wifi-toggle').bind('change', function() {
             wifiState = $(this).val();
             if(wifiState == "On")

@@ -88,8 +88,8 @@ $(document).ready(function(){
 			}
 			if(key=="Wifi")
 			{
-				wifiState = localStorage.getItem('Wifi');
-				$('wifi-toggle').val(wifiState).slider('refresh');
+				alert(localStorage.getItem('Wifi'));
+				$('wifi-toggle').val(localStorage.getItem('Wifi')).slider('refresh');
 			}
 		}
 		$('#scan-slider').unbind('change');

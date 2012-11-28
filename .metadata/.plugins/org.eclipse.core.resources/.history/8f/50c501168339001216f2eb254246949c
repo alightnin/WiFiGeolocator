@@ -88,8 +88,8 @@ $(document).ready(function(){
 			}
 			if(key=="Wifi")
 			{
-				wifiState = localStorage.getItem('Wifi');
-				$('wifi-toggle').val(wifiState).slider('refresh');
+				alert(localStorage.getItem('Wifi'));
+				$('wifi-toggle').val(localStorage.getItem('Wifi'));
 			}
 		}
 		$('#scan-slider').unbind('change');
@@ -98,7 +98,7 @@ $(document).ready(function(){
 			scanState = $(this).slider().val();
 		});
 		$('#wifi-toggle').unbind('change');
-		//$('#wifi-toggle').val('wifiState');
+		$('#wifi-toggle').val('wifiState');
 		$('#wifi-toggle').bind('change', function() {
             wifiState = $(this).val();
             if(wifiState == "On")
