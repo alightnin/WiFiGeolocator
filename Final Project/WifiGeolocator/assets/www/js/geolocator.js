@@ -80,8 +80,11 @@ function onBodyLoad()
 
 $(document).ready(function(){
 	$('#settings').bind('pageshow', function(){
-		for(keyscan in localStorage){
-			scanState = valuescan;
+		for(key in localStorage){
+			if(key=="ScanInt")
+				alert(localStorage.getItem('ScanInt'));
+			if(key=="Wifi")
+				alert(localStorage.getItem('Wifi'));
 		}
 		for(keywifi in localStorage){
 			wifiState = valuewifi;
