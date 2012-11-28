@@ -98,7 +98,7 @@ var WifiPlugin = {
 			if(arr[i].ssid!=previous) {
 
 					ids.push(identity);
-					str+="<div onclick=\"showDiv(\'listdiv"+identity+"\')\" id=\"maindiv"+arr[i].ssid+"\" data-role=\"listview\" data-inset=\"true\"><h3>SSID: "+arr[i].ssid+" SIGNAL: "+arr[i].signal+"</div>";
+					str+="<div onclick=\"showDiv(\'listdiv"+identity+"\')\" id=\"maindiv"+arr[i].ssid+"\" data-role=\"listview\" data-inset=\"true\"><h3>SSID: "+arr[i].ssid+" SIGNAL: <progress value="+ arr[i].signal+" max=\"-100\"></progress>"+arr[i].signal+"</div>";
 
 				if(arr[i].ssid==next)
 				{ 

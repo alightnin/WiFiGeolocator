@@ -34,7 +34,7 @@ $('#map').live("pageinit", function() {
 
 
 function showMarkers(){
-	alert("Showing Markers"+ latitude );
+//	alert("Showing Markers"+ latitude );
 	$.getJSON(serviceURL+'/json.php?lat='+latitude+'&long='+longitude, function(data) { 
 		$.each( data.aps, function(i, marker) {
 			$('#map_canvas').gmap('addMarker', { 
