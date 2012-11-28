@@ -31,7 +31,7 @@ var network = null;
 function deviceReady() {
 
     navigator.geolocation.watchPosition(success, error);
-	showMarkers();
+
     //alert("Ready");
 //    if (navigator.geolocation){
 //    	navigator.geolocation.getCurrentPosition(showPosition);
@@ -54,7 +54,8 @@ function success(position) {
     longitude = position.coords.longitude;
     elementLong.innerHTML = longitude;
    // alert("Success");
-}
+	showMarkers();
+} 
 function error(error) {
     alert(error.message);
 }
