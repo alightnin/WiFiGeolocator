@@ -94,12 +94,13 @@ var WifiPlugin = {
 		for(i=0; i<arr.length; i++) {
 			identity=arr[i].ssid;
 			identity = identity.replace(/\s+/g, '');
+			var signal = 100-Math.abs(arr[i].signal);
 			if(i!=arr.length-1) next=arr[i+1].ssid;
 
 			if(arr[i].ssid!=previous) {
 
 					ids.push(identity);
-					str+="<div onclick=\"showDiv(\'listdiv"+identity+"\')\" id=\"maindiv"+arr[i].ssid+"\" data-role=\"listview\" data-inset=\"true\"><table><tr><td><h3>"+arr[i].ssid+"<h3></td><td><progress value="+Math.abs(arr[i].signal)+" max=\"100\"></progress>"+arr[i].signal+"</td></tr><tr><td>Channel:"+arr[i].frequency+"</td><td>Security: "+arr[i].security+"</td></tr></table></div>";
+					str+="<div onclick=\"showDiv(\'listdiv"+identity+"\')\" id=\"maindiv"+arr[i].ssid+"\" data-role=\"listview\" data-inset=\"true\"><table><tr><td><h3>"+arr[i].ssid+"<h3></td><td><progress value="+signal+" max=\"100\"></progress>"+arr[i].signal+"</td></tr><tr><td>Channel:"+arr[i].frequency+"</td><td>Security: "+arr[i].security+"</td></tr></table></div>";
 
 				if(arr[i].ssid==next)
 				{ 
@@ -109,10 +110,10 @@ var WifiPlugin = {
 				
 			}else{
 				
-				str+="<li class =\"aps"+arr[i].ssid+"\" data-role=\"listview\" data-inset=\"true\"><table><tr><td><h3>"+arr[i].ssid+"<h3></td><td><progress value="+Math.abs(arr[i].signal)+" max=\"100\"></progress>"+arr[i].signal+"</td></tr><tr><td>Channel:"+arr[i].frequency+"</td><td>Security: "+arr[i].security+"</td></tr></table></li>";
+				str+="<li class =\"aps"+arr[i].ssid+"\" data-role=\"listview\" data-inset=\"true\"><table><tr><td><h3>"+arr[i].ssid+"<h3></td><td><progress value="+signal+" max=\"100\"></progress>"+arr[i].signal+"</td></tr><tr><td>Channel:"+arr[i].frequency+"</td><td>Security: "+arr[i].security+"</td></tr></table></li>";
 				if(next!=arr[i].ssid)
 					str+="</div>";
-					
+					 
 				previous=arr[i].ssid;
 			
 			}
