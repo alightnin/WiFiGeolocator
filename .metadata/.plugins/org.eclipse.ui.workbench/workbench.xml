@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="37" version="2.0">
+<workbench progressCount="36" version="2.0">
 <workbenchAdvisor/>
 <window height="773" maximized="true" width="1109" x="65" y="27">
 <fastViewData fastViewLocation="1024"/>
@@ -61,11 +61,11 @@
 </editor>
 <editor activePart="true" focus="true" id="org.eclipse.wst.jsdt.ui.CompilationUnitEditor" name="geolocator.js" partName="geolocator.js" path="/Users/craigweir/Dropbox/School/Fall 2012/CSCI 396(Mobile Apps)/WiFiGeolocator/Final Project/WifiGeolocator/assets/www/js/geolocator.js" title="geolocator.js" tooltip="com.example.wifigeolocator.MainActivity/assets/www/js/geolocator.js" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/com.example.wifigeolocator.MainActivity/assets/www/js/geolocator.js"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3109" selectionTopPixel="1246"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3063" selectionTopPixel="1146"/>
 </editor>
 <editor id="org.eclipse.wst.jsdt.ui.CompilationUnitEditor" name="wifi.js" partName="wifi.js" path="/Users/craigweir/Dropbox/School/Fall 2012/CSCI 396(Mobile Apps)/WiFiGeolocator/Final Project/WifiGeolocator/assets/www/js/wifi.js" title="wifi.js" tooltip="com.example.wifigeolocator.MainActivity/assets/www/js/wifi.js" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/com.example.wifigeolocator.MainActivity/assets/www/js/wifi.js"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="539" selectionTopPixel="113"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
 </editor>
 <editor id="org.eclipse.wst.jsdt.ui.CompilationUnitEditor" name="map.js" partName="map.js" path="/Users/craigweir/Dropbox/School/Fall 2012/CSCI 396(Mobile Apps)/WiFiGeolocator/Final Project/WifiGeolocator/assets/www/js/map.js" title="map.js" tooltip="com.example.wifigeolocator.MainActivity/assets/www/js/map.js" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/com.example.wifigeolocator.MainActivity/assets/www/js/map.js"/>
@@ -103,9 +103,6 @@
 <view id="org.eclipse.datatools.connectivity.DataSourceExplorerNavigator" partName="Data Source Explorer"/>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
-<expanded>
-<category IMemento.internal.id="Warnings (3 items)"/>
-</expanded>
 <columnWidths org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="90" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.resourceField="90" org.eclipse.ui.ide.severityAndDescriptionField="300"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
@@ -426,41 +423,23 @@
 <editors>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.jsdt.ui.CompilationUnitEditor" path="/com.example.wifigeolocator.MainActivity/assets/www/js/wifi.js"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.jsdt.ui.CompilationUnitEditor" path="/com.example.wifigeolocator.MainActivity/assets/www/js/geolocator.js"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.html.core.htmlsource.source" path="/com.example.wifigeolocator.MainActivity/assets/www/pages.html"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.jsdt.ui.CompilationUnitEditor" path="/com.example.wifigeolocator.MainActivity/assets/www/js/map.js"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.css.core.csssource.source" path="/com.example.wifigeolocator.MainActivity/assets/www/css/pages.css"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/com.example.wifigeolocator.MainActivity/src/com/example/wifigeolocator/WiFiGeolocator.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.jsdt.ui.CompilationUnitEditor" path="/com.example.wifigeolocator.MainActivity/assets/www/js/geolocator.js"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.html.core.htmlsource.source" path="/com.example.wifigeolocator.MainActivity/assets/www/pages.html"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.html.core.htmlsource.source" path="/com.example.wifigeolocator.MainActivity/assets/www/pages.html"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.jsdt.ui.CompilationUnitEditor" path="/com.example.wifigeolocator.MainActivity/assets/www/js/wifi.js"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.jsdt.ui.CompilationUnitEditor" path="/com.example.wifigeolocator.MainActivity/assets/www/js/map.js"/>
 </editors>
 <item historyLabel="wifi.js" index="0">
 <position info="not_deleted" x="311" y="0"/>
 </item>
-<item historyLabel="map.js" index="3">
-<position info="not_deleted" x="125" y="8"/>
-</item>
-<item historyLabel="WiFiGeolocator.java" index="5">
-<position info="not_deleted" x="525" y="0"/>
-</item>
-<item historyLabel="wifi.js" index="0">
-<position info="not_deleted" x="311" y="0"/>
-</item>
-<item historyLabel="pages.html" index="2">
-<position info="not_deleted" x="1456" y="0"/>
-</item>
-<item historyLabel="pages.css" index="4">
-<position info="not_deleted" x="565" y="0"/>
-</item>
-<item historyLabel="wifi.js" index="0">
-<position info="not_deleted" x="311" y="0"/>
-</item>
-<item historyLabel="map.js" index="3">
+<item historyLabel="map.js" index="2">
 <position info="not_deleted" x="125" y="8"/>
 </item>
 <item historyLabel="wifi.js" index="0">
 <position info="not_deleted" x="311" y="0"/>
 </item>
-<item historyLabel="map.js" index="3">
+<item historyLabel="map.js" index="2">
 <position info="not_deleted" x="125" y="8"/>
 </item>
 <item historyLabel="geolocator.js" index="1">
@@ -472,116 +451,134 @@
 <item historyLabel="geolocator.js" index="1">
 <position info="not_deleted" x="3577" y="0"/>
 </item>
-<item historyLabel="map.js" index="3">
+<item historyLabel="map.js" index="2">
 <position info="not_deleted" x="125" y="8"/>
 </item>
 <item historyLabel="wifi.js" index="0">
 <position info="not_deleted" x="311" y="0"/>
 </item>
-<item historyLabel="geolocator.js" index="6">
+<item historyLabel="geolocator.js" index="3">
 <position/>
 </item>
-<item historyLabel="geolocator.js" index="6">
+<item historyLabel="geolocator.js" index="3">
 <position/>
 </item>
-<item historyLabel="geolocator.js" index="6">
+<item historyLabel="geolocator.js" index="3">
 <position info="not_deleted" x="2503" y="0"/>
 </item>
-<item historyLabel="geolocator.js" index="6">
+<item historyLabel="geolocator.js" index="3">
 <position/>
 </item>
-<item historyLabel="geolocator.js" index="6">
+<item historyLabel="geolocator.js" index="3">
 <position/>
 </item>
-<item historyLabel="geolocator.js" index="6">
+<item historyLabel="geolocator.js" index="3">
 <position/>
 </item>
-<item historyLabel="geolocator.js" index="6">
+<item historyLabel="geolocator.js" index="3">
 <position/>
 </item>
-<item historyLabel="geolocator.js" index="6">
+<item historyLabel="geolocator.js" index="3">
 <position/>
 </item>
-<item historyLabel="geolocator.js" index="6">
+<item historyLabel="geolocator.js" index="3">
 <position/>
 </item>
-<item historyLabel="geolocator.js" index="6">
+<item historyLabel="geolocator.js" index="3">
 <position/>
 </item>
-<item historyLabel="geolocator.js" index="6">
+<item historyLabel="geolocator.js" index="3">
 <position info="not_deleted" x="3031" y="0"/>
 </item>
 <item historyLabel="wifi.js" index="0">
 <position info="not_deleted" x="311" y="0"/>
 </item>
-<item historyLabel="geolocator.js" index="6">
+<item historyLabel="geolocator.js" index="3">
 <position/>
 </item>
-<item historyLabel="geolocator.js" index="6">
+<item historyLabel="geolocator.js" index="3">
 <position/>
 </item>
-<item historyLabel="geolocator.js" index="6">
+<item historyLabel="geolocator.js" index="3">
 <position info="not_deleted" x="2691" y="0"/>
 </item>
-<item historyLabel="geolocator.js" index="6">
+<item historyLabel="geolocator.js" index="3">
 <position/>
 </item>
-<item historyLabel="geolocator.js" index="6">
+<item historyLabel="geolocator.js" index="3">
 <position info="not_deleted" x="343" y="0"/>
 </item>
-<item historyLabel="geolocator.js" index="6">
+<item historyLabel="geolocator.js" index="3">
 <position info="not_deleted" x="2615" y="0"/>
 </item>
-<item historyLabel="geolocator.js" index="6">
+<item historyLabel="geolocator.js" index="3">
 <position info="not_deleted" x="2580" y="0"/>
 </item>
-<item historyLabel="geolocator.js" index="6">
+<item historyLabel="geolocator.js" index="3">
 <position/>
 </item>
-<item historyLabel="geolocator.js" index="6">
+<item historyLabel="geolocator.js" index="3">
 <position info="not_deleted" x="2613" y="0"/>
 </item>
-<item historyLabel="geolocator.js" index="6">
+<item historyLabel="geolocator.js" index="3">
 <position info="not_deleted" x="2714" y="0"/>
 </item>
-<item historyLabel="geolocator.js" index="6">
+<item historyLabel="geolocator.js" index="3">
 <position info="not_deleted" x="2715" y="0"/>
 </item>
-<item historyLabel="geolocator.js" index="6">
+<item historyLabel="geolocator.js" index="3">
 <position info="not_deleted" x="2750" y="0"/>
 </item>
-<item historyLabel="geolocator.js" index="6">
+<item historyLabel="geolocator.js" index="3">
 <position/>
 </item>
-<item historyLabel="geolocator.js" index="6">
+<item historyLabel="geolocator.js" index="3">
 <position info="not_deleted" x="2982" y="0"/>
 </item>
 <item historyLabel="wifi.js" index="0">
 <position info="not_deleted" x="539" y="0"/>
 </item>
-<item historyLabel="geolocator.js" index="6">
+<item historyLabel="geolocator.js" index="3">
 <position info="not_deleted" x="2986" y="0"/>
 </item>
-<item historyLabel="pages.html" index="7">
+<item historyLabel="pages.html" index="4">
 <position info="not_deleted" x="1456" y="0"/>
 </item>
-<item historyLabel="geolocator.js" index="6">
+<item historyLabel="geolocator.js" index="3">
 <position info="not_deleted" x="2986" y="0"/>
 </item>
-<item historyLabel="pages.html" index="7">
+<item historyLabel="pages.html" index="4">
 <position info="not_deleted" x="1456" y="0"/>
 </item>
-<item historyLabel="geolocator.js" index="6">
+<item historyLabel="geolocator.js" index="3">
 <position info="not_deleted" x="2986" y="0"/>
 </item>
-<item historyLabel="geolocator.js" index="6">
+<item historyLabel="geolocator.js" index="3">
 <position info="not_deleted" x="2747" y="0"/>
 </item>
-<item historyLabel="geolocator.js" index="6">
+<item historyLabel="geolocator.js" index="3">
 <position info="not_deleted" x="2748" y="0"/>
 </item>
-<item active="true" historyLabel="geolocator.js" index="6">
+<item historyLabel="geolocator.js" index="3">
 <position info="not_deleted" x="2694" y="0"/>
+</item>
+<item historyLabel="pages.html" index="5">
+<position info="not_deleted" x="1456" y="0"/>
+</item>
+<item historyLabel="wifi.js" index="6">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="wifi.js" index="6">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="geolocator.js" index="3">
+<position info="not_deleted" x="3063" y="0"/>
+</item>
+<item historyLabel="map.js" index="7">
+<position info="not_deleted" x="125" y="8"/>
+</item>
+<item active="true" historyLabel="geolocator.js" index="3">
+<position info="not_deleted" x="3063" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
