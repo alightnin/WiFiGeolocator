@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "com.example.wifigiolocator"
+        versionCode="10" 
+        version   = "1.0.0">
+
+    <!-- versionCode is optional and Android only -->
+
+    <name>WifiGeolocator</name>
+
+    <description>
+        An android wifi geolocator.  
+    </description>
+
+    <author href="https://jmellor.net" email="support@jmellor.net">
+        Jonathan Mellor
+        Craig Weir
+    </author>
+<preference name="phonegap-version" value="2.0.0" />
+<preference name="target-device" value="handset" />
+<preference name="android-minSdkVersion" value="8" />
+<preference name="android-maxSdkVersion" value="16" />
+<preference name="load-url-timeout" value="6000" />
+</widget>
