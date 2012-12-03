@@ -17,7 +17,8 @@ import android.net.wifi.WifiManager;
 
 public class ScannerPlugin extends Plugin {
 public static final String SCAN_STRING="Scan"; 
-public static final String TURN_ON_STRING="TurnOn"; 
+public static final String TURN_ON_STRING="TurnOn";
+public static final String TURN_OFF_STRING="TurnOff"; 
 private WifiManager wifiManager;
       public static final String SUCCESS_PARAMETER="success"; 
       private static final String TAG = "WIFI SCANNER";
@@ -71,6 +72,19 @@ private WifiManager wifiManager;
           	 {
           		 wifiManager.setWifiEnabled(true);
           		 Log.v(TAG,"!!!!!!!!!!!!!!!! WIFI ON NOW");
+          		 return new PluginResult(PluginResult.Status.OK);
+          	 }
+          	 else
+          		 return new PluginResult(PluginResult.Status.OK, "WIFI IS ON");
+          	 //End Turn Wifi on
+    	  }
+    	  else if(TURN_OFF_STRING.equals(action)	)
+    	  {
+    		  // Turn Wifi On
+          	 if(wifiManager.isWifiEnabled())
+          	 {
+          		 wifiManager.setWifiEnabled(false);
+          		 //Log.v(TAG,"!!!!!!!!!!!!!!!! WIFI ON NOW");
           		 return new PluginResult(PluginResult.Status.OK);
           	 }
           	 else
