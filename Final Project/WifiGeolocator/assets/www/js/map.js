@@ -11,7 +11,7 @@ $('#map').live("pageshow", function() {
 });
 $('#map').live("pageinit", function() {
 	//alert(latitude+ " "+longitude); 
-	$('#map_canvas').gmap('option', 'zoom', 17);
+	$('#map_canvas').gmap('option', 'zoom', 14);
 //	$.getJSON(serviceURL+'/json.php?lat='+latitude+'&long='+longitude, function(data) { 
 //		$.each( data.aps, function(i, marker) {
 //			$('#map_canvas').gmap('addMarker', { 
@@ -22,7 +22,7 @@ $('#map').live("pageinit", function() {
 //
 //				$('#map_canvas').gmap('openInfoWindow', { 'content': str }, this);
 //			});
-//		});
+//		}); 
 //	});
 });
 //$.each(markerData, function(){

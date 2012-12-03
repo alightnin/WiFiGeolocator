@@ -38,7 +38,8 @@
         <activity
             android:configChanges="orientation|keyboardHidden"
             android:name=".WiFiGeolocator"
-            android:label="@string/title_activity_main" >
+            android:label="WiFiGeolocator" >
+            
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
