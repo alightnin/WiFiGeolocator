@@ -18,7 +18,7 @@ var WifiPlugin = {
 
 	function startButtonPressed(scanType){
 		if(latitude!=-999 && longitude!=-999){
-				inter=setInterval(function(){startScanning(scanType)}, scanState*1000);
+			inter=setInterval(function(){startScanning(scanType)}, 3000);
 			//startScanning();
 //			stat.innerHTML="Scanning...";
 		}else{
