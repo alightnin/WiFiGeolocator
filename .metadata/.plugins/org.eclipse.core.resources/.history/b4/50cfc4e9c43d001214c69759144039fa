@@ -90,6 +90,7 @@ $(document).ready(function(){
 			if(key=="Wifi")
 			{
 				wifiState = localStorage.getItem('Wifi');
+				$('wifi-toggle').val(wifiState).slider('refresh');
 			}
 		}
 		$('#scan-slider').unbind('change');
@@ -104,11 +105,9 @@ $(document).ready(function(){
             if(wifiState == "On")
             {
             	turnOnWifi();
-            	$('wifi-toggle').val("On");
             }
             else
-            	turnOffWifi();
-            	$('wifi-toggle').val("Off");
+            	alert("WiFi is Off");
         });	
 	})
 })
@@ -134,7 +133,7 @@ function saveSet()
 	console.log("Key: " + keywifi + " Value: " + valuewifi);
 	localStorage.setItem(keywifi, valuewifi);
 	
-	alert("Settings now saved!" + "\nScan Interval: " + scanState + "\nWiFi: " + wifiState);
+	alert("Settings now saved!");
 }
 
 

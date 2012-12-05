@@ -1,0 +1,2 @@
+INDEX VERSION 1.126+/Users/craigweir/github/local/WiFiGeolocator/.metadata/.plugins/org.eclipse.jdt.core
+2781733563.index

@@ -90,6 +90,7 @@ $(document).ready(function(){
 			if(key=="Wifi")
 			{
 				wifiState = localStorage.getItem('Wifi');
+				$('wifi-toggle').val(wifiState).slider('refresh');
 			}
 		}
 		$('#scan-slider').unbind('change');
@@ -104,11 +105,11 @@ $(document).ready(function(){
             if(wifiState == "On")
             {
             	turnOnWifi();
-            	$('wifi-toggle').val("On");
+            	$('wifi-toggle').val("On").slider('refresh');
             }
             else
             	turnOffWifi();
-            	$('wifi-toggle').val("Off");
+            	$('wifi-toggle').val("Off").slider('refresh');
         });	
 	})
 })
