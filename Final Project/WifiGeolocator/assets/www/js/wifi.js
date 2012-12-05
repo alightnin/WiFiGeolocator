@@ -2,7 +2,7 @@
 var divShowing;
 var WifiPlugin = {
 		callNativeFunction: function (success, fail, native_action, resultType) {
-		return cordova.exec( success, fail, "com.example.wifigeolocator", native_action, [resultType]);
+		return cordova.exec( success, fail, "com.wifi.wifigeolocator", native_action, [resultType]);
 		}
 	}; 
 	APobj = new Object();
