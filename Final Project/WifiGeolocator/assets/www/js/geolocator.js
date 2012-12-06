@@ -2,11 +2,9 @@ var theScroll;
 var markerData=[];
 var latitude=-999, longitude=-999;
 var db;
-var wifiState = 'Off';
+var wifiState = 'Off' ;
 var scanState = 2;
 var keyscan, valuescan, keywifi, valuewifi;
-
-//document.addEventListener('DOMContentLoaded', scroll, false);
 
 
 function page(toPage) {
@@ -29,25 +27,24 @@ document.addEventListener("deviceready", deviceReady, false);
 var watchID = null;
 var network = null;
 function deviceReady() {
-	//alert("ready");
-	//navigator.geolocation.watchPosition(success, error);
+		for(key in localStorage){
+			if(key=="Wifi")
+			{
+				wifiState = localStorage.getItem('Wifi');
+			}
+		} 
 
-//    navigator.geolocation.getCurrentPosition(success, error, { enableHighAccuracy: true });
+            if(wifiState == "On")
+            {
+            	turnOnWifi();
+            }
+  
+      	
+	
 	var inter=setInterval(navigator.geolocation.getCurrentPosition(success, error, { enableHighAccuracy: true }), scanState*1000);
-    //alert("Ready");
-//    if (navigator.geolocation){
-//    	navigator.geolocation.getCurrentPosition(showPosition);
-//    }else{
-//    	alert("Geolocation is not supported by this browser.");
-//    }
-  }
-//    db = window.openDatabase("wifi", "1.0", "wifiStorage", 200000);
-//    db.transaction(startDB, error, success);
-    //if(setting to turn on wifi on startup)
- 
-function startDB(tx) {
-    tx.executeSql('CREATE TABLE IF NOT EXISTS wifi (id unique, data)');
+	//alert("state "+scanState );
 }
+
 function success(position) {
 	
     var elementLat = document.getElementById('latitude');
@@ -56,7 +53,6 @@ function success(position) {
     var elementLong = document.getElementById('longitude');
     longitude = position.coords.longitude;
     elementLong.innerHTML = longitude;
-   // alert(latitude+" "+longitude);
 	showMarkers();
 } 
 function error(error) {
@@ -69,11 +65,7 @@ var res;
 function onBodyLoad() 
 {   
 	alert("The app will now attempt to access your current location. This takes several seconds. Until the process is complete, the app will be unresponsive. Please press OK to continue");
-//	stat=document.getElementById('status');
-//	res=document.getElementById('results');
-//	analyzeResults=document.getElementById('analyzeResults');
-//	stat.innerHTML="Idle";
-//	res.innerHTML="Waiting for Results";
+
 	analyzeResults.innerHTML="Nothing to report";
 	var mapcanvas=document.getElementById('map_canvas');
 	mapcanvas.style.width=window.innerWidth-30+'px';
@@ -102,7 +94,7 @@ $(document).ready(function(){
 			scanState = $(this).slider().val();
 		});
 		$('#wifi-toggle').unbind('change');
-		//$('#wifi-toggle').val('wifiState');
+		$('#wifi-toggle').val('wifiState').slider('refresh');
 		$('#wifi-toggle').bind('change', function() {
             wifiState = $(this).val();
             if(wifiState == "On")

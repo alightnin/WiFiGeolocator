@@ -20,8 +20,6 @@ var WifiPlugin = {
 	function startButtonPressed(scanType){
 		if(latitude!=-999 && longitude!=-999){
 				inter=setInterval(function(){startScanning(scanType)}, scanState*1000);
-			//startScanning();
-//			stat.innerHTML="Scanning...";
 		}else{
 			alert("You need to turn on your GPS");
 		}
@@ -45,12 +43,10 @@ var WifiPlugin = {
 		WifiPlugin.callNativeFunction(wifiNativePluginSuccessHandler, nativePluginErrorHandler, "TurnOff", null);
 	}
 	function startScanning(scanType) {
-		//res.innerHTML=" ";
 		WifiPlugin.callNativeFunction(scanType, nativePluginErrorHandler, "Scan", null);
 	}
 
 	function captureNativePluginSuccessHandler(result) {
-		//alert(latitude+ " "+ longitude);
 		var latt=latitude;
 		var longg=longitude
 		var key, i=0, str;
@@ -65,8 +61,6 @@ var WifiPlugin = {
 			lat: latitude,
 			lon: longitude,
 			};
-			//console.log(obj.lat);
-			//newRes.push(obj);
 			upload(obj);
 		}
 
@@ -127,7 +121,6 @@ var WifiPlugin = {
 		alert("Error "+result);
 	}
 	function wifiNativePluginSuccessHandler(result){
-		//alert("Wifi On: "+result);	
 	}
 	
 	function showDiv(divToShow) {
@@ -136,7 +129,6 @@ var WifiPlugin = {
 		else 
 			divShowing=divToShow;
 		$("#"+divToShow).toggle();
-		//console.log("here");
 	}	
 	function upload(toUp){
 		var xmlhttp=new XMLHttpRequest();
@@ -145,7 +137,6 @@ var WifiPlugin = {
 		url +="lat="+toUp.lat+"&long="+toUp.lon+"&ssid="+toUp.ssid+"&mac="+toUp.mac+"&freq="+toUp.frequency+"&sec="+toUp.security+"&signal="+toUp.signal;
 		xmlhttp.open("GET",url,true);
 		xmlhttp.send(null);
-		//console.log(xmlhttp.responseText);
 
 		console.log(url);
 	}
