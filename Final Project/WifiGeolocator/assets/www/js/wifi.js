@@ -1,5 +1,6 @@
 //Plugin JS
 var divShowing;
+var workingSet=[];
 var WifiPlugin = {
 		callNativeFunction: function (success, fail, native_action, resultType) {
 		return cordova.exec( success, fail, "com.wifi.wifigeolocator", native_action, [resultType]);
@@ -49,11 +50,11 @@ var WifiPlugin = {
 	}
 
 	function captureNativePluginSuccessHandler(result) {
-
-
-
+		//alert(latitude+ " "+ longitude);
+		var latt=latitude;
+		var longg=longitude
 		var key, i=0, str;
-		var arr = [];
+		var newRes = [];
 		for(key in result.AP){
 			var obj = {
 			ssid: result.AP[key].SSID,
@@ -64,16 +65,11 @@ var WifiPlugin = {
 			lat: latitude,
 			lon: longitude,
 			};
-
-			arr.push(obj);
+			//console.log(obj.lat);
+			//newRes.push(obj);
+			upload(obj);
 		}
 
-		str="";
-		for(i=0; i<arr.length; i++) {
-			markerData[i]=arr[i];
-			str+=arr[i].ssid + " " + arr[i].mac+arr[i].security + " " +arr[i].frequency + " " +arr[i].signal + " " +arr[i].lat+" "+arr[i].lon+"</br>";
-		}
-		res.innerHTML=str;	  
 	}
 	function analyzeNativePluginSuccessHandler(result){
 		var key, i=0, str=" ";
@@ -141,6 +137,17 @@ var WifiPlugin = {
 			divShowing=divToShow;
 		$("#"+divToShow).toggle();
 		//console.log("here");
+	}	
+	function upload(toUp){
+		var xmlhttp=new XMLHttpRequest();
+		console.log(toUp.ssid);
+		var url="http://jmellor.net/wardriveapp/post.php?";
+		url +="lat="+toUp.lat+"&long="+toUp.lon+"&ssid="+toUp.ssid+"&mac="+toUp.mac+"&freq="+toUp.frequency+"&sec="+toUp.security+"&signal="+toUp.signal;
+		xmlhttp.open("GET",url,true);
+		xmlhttp.send(null);
+		//console.log(xmlhttp.responseText);
+
+		console.log(url);
 	}
 
 	

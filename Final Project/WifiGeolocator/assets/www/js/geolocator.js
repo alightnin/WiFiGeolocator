@@ -1,6 +1,6 @@
 var theScroll;
 var markerData=[];
-var latitude, longitude;
+var latitude=-999, longitude=-999;
 var db;
 var wifiState = 'Off';
 var scanState = 2;
@@ -29,9 +29,11 @@ document.addEventListener("deviceready", deviceReady, false);
 var watchID = null;
 var network = null;
 function deviceReady() {
+	//alert("ready");
+	//navigator.geolocation.watchPosition(success, error);
 
-    navigator.geolocation.watchPosition(success, error);
-
+//    navigator.geolocation.getCurrentPosition(success, error, { enableHighAccuracy: true });
+	var inter=setInterval(navigator.geolocation.getCurrentPosition(success, error, { enableHighAccuracy: true }), scanState*1000);
     //alert("Ready");
 //    if (navigator.geolocation){
 //    	navigator.geolocation.getCurrentPosition(showPosition);
@@ -47,13 +49,14 @@ function startDB(tx) {
     tx.executeSql('CREATE TABLE IF NOT EXISTS wifi (id unique, data)');
 }
 function success(position) {
+	
     var elementLat = document.getElementById('latitude');
     latitude = position.coords.latitude;
     elementLat.innerHTML = latitude;
     var elementLong = document.getElementById('longitude');
     longitude = position.coords.longitude;
     elementLong.innerHTML = longitude;
-   // alert("Success");
+   // alert(latitude+" "+longitude);
 	showMarkers();
 } 
 function error(error) {
@@ -65,6 +68,7 @@ var stat;
 var res;
 function onBodyLoad() 
 {   
+	alert("The app will now attempt to access your current location. This takes several seconds. Until the process is complete, the app will be unresponsive. Please press OK to continue");
 //	stat=document.getElementById('status');
 //	res=document.getElementById('results');
 //	analyzeResults=document.getElementById('analyzeResults');
